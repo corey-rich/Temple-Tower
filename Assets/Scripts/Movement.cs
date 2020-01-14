@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
     public SpriteRenderer whip;
     public SpriteRenderer MilesFrontWalk;
     private Rigidbody rb;
+    private bool rollStop = false;
 
     public int score;
     public GameObject scoreText;
@@ -91,7 +92,7 @@ public class Movement : MonoBehaviour
             {
                 sprites.GetComponent<SpriteRenderer>().enabled = false;
             }
-            //TurnOffFrontWalk();
+            MilesFrontWalk.enabled = false;
             //whipAnim.GetComponent<SpriteRenderer>().enabled = true;
             whipAnim.Play("MilesWhippingFrameByFrame"); //whip estending animation
             if (!isLocked && playedOnce == false)
@@ -181,6 +182,14 @@ public class Movement : MonoBehaviour
                 isRolling = true;
                 RollAnimation();
                 StartCoroutine(RollBack());
+            }
+
+            // roll back
+            if (isGrounded && rollStop)
+            {
+                speed -= rollSpeed;
+                isRolling = false;
+                rollStop = false;
             }
 
             // applies force vertically if the space key is pressed
@@ -398,8 +407,7 @@ public class Movement : MonoBehaviour
     IEnumerator RollBack()
     {
         yield return new WaitForSeconds(rollLength);
-        speed -= rollSpeed;
-        isRolling = false;
+        rollStop = true;
     }
 
     IEnumerator JumpReset()
