@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
     public SpriteRenderer whip;
     public SpriteRenderer MilesFrontWalk;
     private Rigidbody rb;
+    private bool rollStop = false;
 
     public int score;
     public GameObject scoreText;
@@ -71,7 +72,7 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetKeyDown("a") || Input.GetKeyDown("d") || Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
             {
-                MilesPullBack();
+                //MilesPullBack();
                 WhipPullBack();
                 StartCoroutine(WhipDelay());
                 playedOnce = false;
@@ -86,8 +87,14 @@ public class Movement : MonoBehaviour
         else if (isWhipping && playedOnce == false)
         {
             //play whipping animation on Miles and the Whip
-            anim.Play("MilesWhipExtend"); //player whipping animation
-            whipAnim.Play("WhipExtendV2"); //whip estending animation
+            //anim.Play("MilesWhipExtend"); //player whipping animation
+            foreach (GameObject sprites in MilesSprites)
+            {
+                sprites.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            MilesFrontWalk.enabled = false;
+            //whipAnim.GetComponent<SpriteRenderer>().enabled = true;
+            whipAnim.Play("MilesWhippingFrameByFrame"); //whip estending animation
             if (!isLocked && playedOnce == false)
             {
                 StartCoroutine(WhipDelay());
@@ -175,6 +182,14 @@ public class Movement : MonoBehaviour
                 isRolling = true;
                 RollAnimation();
                 StartCoroutine(RollBack());
+            }
+
+            // roll back
+            if (isGrounded && rollStop)
+            {
+                speed -= rollSpeed;
+                isRolling = false;
+                rollStop = false;
             }
 
             // applies force vertically if the space key is pressed
@@ -392,8 +407,7 @@ public class Movement : MonoBehaviour
     IEnumerator RollBack()
     {
         yield return new WaitForSeconds(rollLength);
-        speed -= rollSpeed;
-        isRolling = false;
+        rollStop = true;
     }
 
     IEnumerator JumpReset()
@@ -415,14 +429,14 @@ public class Movement : MonoBehaviour
     IEnumerator PullBackDelay()
     {
         yield return new WaitForSeconds(1);
-        WhipPullBack();
-        MilesPullBack();
+        //WhipPullBack();
+        //MilesPullBack();
         playedOnce2 = true;
     }
     
     IEnumerator WhipDelay()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5146f);
         isWhipping = false;
         playedOnce = false;
     }
