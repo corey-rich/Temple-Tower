@@ -2325,6 +2325,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2807127493187781965, guid: 60e8c954c04cdcc47812828482097676,
+        type: 3}
+      propertyPath: spawnPos
+      value: 
+      objectReference: {fileID: 582819222}
+    - target: {fileID: 2807127493187781965, guid: 60e8c954c04cdcc47812828482097676,
+        type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 7951468285414143397, guid: 17226ea7670ecfc4294c3e77a029fbc4,
+        type: 3}
     - target: {fileID: 7703831548174235338, guid: 60e8c954c04cdcc47812828482097676,
         type: 3}
       propertyPath: m_MaskInteraction
@@ -2965,6 +2976,12 @@ Transform:
 --- !u!1 &582819221 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 304262700346412112, guid: 60e8c954c04cdcc47812828482097676,
+    type: 3}
+  m_PrefabInstance: {fileID: 382545952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &582819222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2977577391381682280, guid: 60e8c954c04cdcc47812828482097676,
     type: 3}
   m_PrefabInstance: {fileID: 382545952}
   m_PrefabAsset: {fileID: 0}
@@ -3693,6 +3710,31 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 672042676966388238, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -48.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134524330153425446, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193503668128622173, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981204743261137854, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 825780740675058647, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: FakeParent
+      value: 
+      objectReference: {fileID: 1198501199}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 131576652e3875b45b6f6b6fe8ec93a7, type: 3}
 --- !u!1 &737120024
@@ -3944,6 +3986,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 814533010}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &793638982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +5039,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 1587762230}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &1096532688
 GameObject:
   m_ObjectHideFlags: 0
@@ -9148,6 +9192,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 1689812060}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &2062589214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2370775575964367463, guid: 131576652e3875b45b6f6b6fe8ec93a7,
@@ -21165,6 +21210,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 4243601082633178528}
   coinType: 2
+  maxCoins: 5
 --- !u!95 &2440741976472082736
 Animator:
   serializedVersion: 3
@@ -21791,6 +21837,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!114 &2586928603541523865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21810,6 +21857,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!114 &2586928603710678515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21829,6 +21877,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!1 &2594723609506568348
 GameObject:
   m_ObjectHideFlags: 0
@@ -27727,6 +27776,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!33 &4463397850843641641
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41777,6 +41827,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 3
+  maxCoins: 5
 --- !u!4 &5717847224576189765
 Transform:
   m_ObjectHideFlags: 0
@@ -53490,6 +53541,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 890976649796246519}
   coinType: 1
+  maxCoins: 5
 --- !u!4 &6762388065647963646
 Transform:
   m_ObjectHideFlags: 0
@@ -53623,6 +53675,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 2
+  maxCoins: 5
 --- !u!4 &6793793978974441967
 Transform:
   m_ObjectHideFlags: 0
@@ -62857,6 +62910,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!64 &8600865226584927066
 MeshCollider:
   m_ObjectHideFlags: 0
