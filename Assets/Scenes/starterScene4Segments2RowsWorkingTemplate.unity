@@ -2191,6 +2191,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2977577391381682280, guid: 60e8c954c04cdcc47812828482097676,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662311172, guid: 60e8c954c04cdcc47812828482097676, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 158118348, guid: 60e8c954c04cdcc47812828482097676, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60e8c954c04cdcc47812828482097676, type: 3}
 --- !u!1 &428206201
@@ -3307,6 +3320,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 814533010}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &793638982
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4092,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 1587762230}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &1096532688
 GameObject:
   m_ObjectHideFlags: 0
@@ -7159,6 +7174,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 1689812060}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &2075016367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2173340760384556764, guid: 60e8c954c04cdcc47812828482097676,
@@ -19170,6 +19186,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 4243601082633178528}
   coinType: 2
+  maxCoins: 5
 --- !u!95 &2440741976472082736
 Animator:
   serializedVersion: 3
@@ -19796,6 +19813,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!114 &2586928603541523865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19815,6 +19833,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!114 &2586928603710678515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19834,6 +19853,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!1 &2594723609506568348
 GameObject:
   m_ObjectHideFlags: 0
@@ -25732,6 +25752,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!33 &4463397850843641641
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -39782,6 +39803,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 3
+  maxCoins: 5
 --- !u!4 &5717847224576189765
 Transform:
   m_ObjectHideFlags: 0
@@ -51495,6 +51517,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 890976649796246519}
   coinType: 1
+  maxCoins: 5
 --- !u!4 &6762388065647963646
 Transform:
   m_ObjectHideFlags: 0
@@ -51628,6 +51651,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 2
+  maxCoins: 5
 --- !u!4 &6793793978974441967
 Transform:
   m_ObjectHideFlags: 0
@@ -60862,6 +60886,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!64 &8600865226584927066
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class SpawnWhip : MonoBehaviour
     public Transform spawnPos;
     public GameObject spawn;
     private float counter = 0;
-    public float waitTime = 41;
+    public float waitTime = 20;
 
     public bool isWhip;   
     void Update()
@@ -18,7 +18,7 @@ public class SpawnWhip : MonoBehaviour
         else
             isWhip = false;
 
-        if(counter <= 42)
+        if(counter <= 21)
             counter++;
 
         if (counter > waitTime)

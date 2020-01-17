@@ -75,7 +75,7 @@ public class MoveSegment : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Whip" && !isLocked)
+        if (other.gameObject.tag == "Whip" && !isLocked && !isMoving)
         {
             movementScript.isLocked = true;
             isLocked = true;
