@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PumaController : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
     public float lookRadius = 10f;
     public float speed;
