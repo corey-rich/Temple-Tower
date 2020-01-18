@@ -93,7 +93,7 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene("DeathScene");
         }
-        else if (!isLocked && isWhipping && playedOnce == false)
+        else if (!isLocked && isWhipping && !justJumped  && !isRolling && isGrounded && playedOnce == false)
         {
             //play whipping animation on Miles and the Whip
             //anim.Play("MilesWhipExtend"); //player whipping animation
@@ -130,7 +130,10 @@ public class Movement : MonoBehaviour
 
             if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
             {
-                isWhipping = true;
+                if(!isLocked && !justJumped  && !isRolling && isGrounded && playedOnce == false)
+                {
+                    isWhipping = true;
+                }
             } //press mouse button to whip
         
                 
@@ -353,8 +356,8 @@ public class Movement : MonoBehaviour
 
     public void IdleAnimation()
     {
-            anim.Play("MilesIdle"); 
-      } 
+        anim.Play("MilesIdle"); 
+    } 
     public void RunAnimation()
     {
         anim.Play("RunCycle"); 
