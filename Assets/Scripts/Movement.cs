@@ -122,7 +122,7 @@ public class Movement : MonoBehaviour
             {
                 notMoving = true;
             }
-            if (MilesFrontWalk)
+            if (MilesFrontWalk && !facingFront)
             {
                 TurnOffFrontWalk();
             }    
@@ -130,10 +130,7 @@ public class Movement : MonoBehaviour
 
             if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
             {
-                if(!isLocked && !justJumped  && !isRolling && isGrounded && playedOnce == false)
-                {
-                    isWhipping = true;
-                }
+                isWhipping = true;
             } //press mouse button to whip
         
                 
@@ -339,7 +336,7 @@ public class Movement : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject.tag == "Trap")            
+        if (other.gameObject.tag == "Trap" && this.gameObject.tag == "Player")            
         {
             Instantiate (bloodSpawn, other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position), this.transform.rotation);
         }
@@ -356,11 +353,25 @@ public class Movement : MonoBehaviour
 
     public void IdleAnimation()
     {
-        anim.Play("MilesIdle"); 
+        if(!facingFront)
+        {
+            anim.Play("MilesIdle"); 
+        }
+        else if(facingFront && (Input.GetAxis("Vertical") == 0))
+        {
+            frontMiles.Play("MilesFrontIdle");
+        }
     } 
     public void RunAnimation()
     {
-        anim.Play("RunCycle"); 
+        if(!facingFront)
+        {
+            anim.Play("RunCycle"); 
+        }
+        else
+        {
+            frontMiles.Play("MilesFrontRunCycle");
+        }
     } 
     public void RollAnimation()
     {
