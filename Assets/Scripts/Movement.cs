@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
     private bool rollStop = false;
 
     public int score;
+    public bool facingFront = false;
     public GameObject scoreText;
     private TextMeshProUGUI text;
     private int greenValue = 5;
@@ -213,6 +214,7 @@ public class Movement : MonoBehaviour
                     StartCoroutine(JumpReset());
                 }
             }
+
         }
 
         // coins
@@ -351,8 +353,8 @@ public class Movement : MonoBehaviour
 
     public void IdleAnimation()
     {
-        anim.Play("MilesIdle"); 
-    } 
+            anim.Play("MilesIdle"); 
+      } 
     public void RunAnimation()
     {
         anim.Play("RunCycle"); 
@@ -449,4 +451,20 @@ public class Movement : MonoBehaviour
         isWhipping = false;
         playedOnce = false;
     }
+    public void SwitchViewFront()
+    {
+        foreach (GameObject sprites in MilesSprites)
+            {
+                 sprites.GetComponent<SpriteRenderer>().enabled = false;
+            }     
+        frontMiles.Play("MilesFrontIdle"); 
+    }
+   /* public void SwitchViewSide()
+    {
+        anim.Play("MilesIdle"); 
+            foreach (GameObject sprites in MilesSprites)
+                {
+                    sprites.GetComponent<SpriteRenderer>().enabled = true;
+                }     
+    }*/
 }
