@@ -15,6 +15,8 @@ public class PotteryController : MonoBehaviour
     [Header("Vase type is: TallVase = 4, Medium = 3")]
     [Header("Coins: green = 0, gold = 1, silver = 2")]
     public int potteryType; 
+    public int maxCoins = 5;
+    private int coinCount = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -56,7 +58,11 @@ public class PotteryController : MonoBehaviour
             break;
         }
             isReady = false;
-            isCollided = true;
+            if(maxCoins > coinCount)
+            {
+                isCollided = true;
+                coinCount++;
+            }
             StartCoroutine(PotterySoundDelay());
         }
     }

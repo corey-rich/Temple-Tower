@@ -70,13 +70,21 @@ public class Movement : MonoBehaviour
     {
         if (isLocked)
         {
+            whipAnim.Play("MilesWhipPulledBackIdleStop");
+            MilesFrontWalk.enabled = false;
+            foreach (GameObject sprites in MilesSprites)
+                {
+                    sprites.GetComponent<SpriteRenderer>().enabled = false;
+                }
             if (Input.GetKeyDown("a") || Input.GetKeyDown("d") || Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
             {
                 //MilesPullBack();
-                WhipPullBack();
-                StartCoroutine(WhipDelay());
+                //WhipPullBack();
+                //StartCoroutine(WhipDelay());
                 playedOnce = false;
                 isLocked = false;
+                whipAnim.Play("MilesWhipPulledBackIdle");
+                //MilesWhipPullBack();
             }
         }
 
@@ -84,7 +92,7 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene("DeathScene");
         }
-        else if (isWhipping && playedOnce == false)
+        else if (!isLocked && isWhipping && playedOnce == false)
         {
             //play whipping animation on Miles and the Whip
             //anim.Play("MilesWhipExtend"); //player whipping animation
@@ -97,8 +105,8 @@ public class Movement : MonoBehaviour
             whipAnim.Play("MilesWhippingFrameByFrame"); //whip estending animation
             if (!isLocked && playedOnce == false)
             {
-                StartCoroutine(WhipDelay());
-                StartCoroutine(PullBackDelay());
+                StartCoroutine(WhipAnimationDelay());
+                //StartCoroutine(PullBackDelay());
                 playedOnce = true;
             }
         }
@@ -371,15 +379,15 @@ public class Movement : MonoBehaviour
         anim.Play("MilesFallLoop"); 
     }
 
-    public void MilesPullBack()
+    public void MilesWhipPullBack()
     {
-        anim.Play("MilesWhipPullback");
+        anim.Play("MilesWhipPullBackIdle");
     }
 
-    public void WhipPullBack()
+    /*public void WhipPullBack()
     {
         whipAnim.Play("WhipPullback");
-    }
+    }*/
     
     public void TurnOffFrontWalk()
     {
@@ -426,19 +434,19 @@ public class Movement : MonoBehaviour
         }
     }
     
-    IEnumerator PullBackDelay()
+    /*IEnumerator PullBackDelay()
     {
         yield return new WaitForSeconds(1);
         //WhipPullBack();
         //MilesPullBack();
         playedOnce2 = true;
-    }
+    }*/
     
-    IEnumerator WhipDelay()
+    IEnumerator WhipAnimationDelay()
     {
-        yield return new WaitForSeconds(0.5146f);
+        yield return new WaitForSeconds(0.73f);
+        IdleAnimation();
         isWhipping = false;
         playedOnce = false;
     }
 }
-
