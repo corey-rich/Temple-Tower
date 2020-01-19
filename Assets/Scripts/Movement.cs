@@ -118,7 +118,7 @@ public class Movement : MonoBehaviour
 
             if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
             {
-                if(isGrounded)
+                if(isGrounded && !isRolling && !justJumped)
                 {
                     isWhipping = true;
                     Debug.Log("Whipping");
@@ -199,7 +199,7 @@ public class Movement : MonoBehaviour
                     RollAnimation();
                     StartCoroutine(RollBack());
                 }
-                else if(facingFront)
+                else if(facingFront && !isRolling) //removing !isRolling causes the player to infinitely speedup
                 {
                     speed += rollSpeed;
                     isRolling = true;
