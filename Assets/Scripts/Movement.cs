@@ -85,7 +85,7 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene("DeathScene");
         }
-        else if (!isLocked && isWhipping && !justJumped  && !isRolling && isGrounded && playedOnce == false)
+        else if (isWhipping && isGrounded && !isLocked && !justJumped  && !isRolling && !playedOnce)
         {
             foreach (GameObject sprites in MilesSprites)
             {
@@ -116,9 +116,13 @@ public class Movement : MonoBehaviour
             }    
             transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
 
-            if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4") && !isLocked && !isJumping && !justJumped && !isRolling && isGrounded)
+            if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
             {
-                isWhipping = true;
+                if(isGrounded)
+                {
+                    isWhipping = true;
+                    Debug.Log("Whipping");
+                }
             } //press mouse button to whip        
 
             if (Input.GetAxis("Horizontal") > 0)
