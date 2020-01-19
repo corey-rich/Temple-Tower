@@ -102,7 +102,7 @@ public class Movement : MonoBehaviour
         else if (!isWhipping && !isLocked)
         {
             // moves character
-            if (Input.GetAxis("Horizontal") != 0)
+            if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
             {
                 notMoving = false;
             }
@@ -190,12 +190,22 @@ public class Movement : MonoBehaviour
                 }
             }
             // roll
-            if (isGrounded && !notMoving && !facingFront && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
+            if (isGrounded && !notMoving && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
             {
-                speed += rollSpeed;
-                isRolling = true;
-                RollAnimation();
-                StartCoroutine(RollBack());
+                if(!facingFront)
+                {
+                    speed += rollSpeed;
+                    isRolling = true;
+                    RollAnimation();
+                    StartCoroutine(RollBack());
+                }
+                else if(facingFront)
+                {
+                    speed += rollSpeed;
+                    isRolling = true;
+                    frontMiles.speed = 1.8f;
+                    StartCoroutine(RollBack());
+                }
             }
             // roll back
             if (isGrounded && rollStop)
@@ -397,6 +407,7 @@ public class Movement : MonoBehaviour
     public void JumpAnimation()
     {
         anim.Play("MilesJump3");
+        frontMiles.speed = 1.0f; //fixes animation desync when rolling and in front facing the camera mode
         if (isBackTurned)
         {
             frontMiles.Play("MilesBackJump");
@@ -433,6 +444,7 @@ public class Movement : MonoBehaviour
     IEnumerator RollBack()
     {
         yield return new WaitForSeconds(rollLength);
+        frontMiles.speed = 1.0f;
         rollStop = true;
     }
     IEnumerator JumpReset()
