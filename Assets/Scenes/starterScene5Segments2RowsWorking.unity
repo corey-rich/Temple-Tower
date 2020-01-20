@@ -469,7 +469,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1633993598}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &158118349
 MonoBehaviour:
@@ -3436,7 +3436,7 @@ PrefabInstance:
     - target: {fileID: 8860107809138701539, guid: 131576652e3875b45b6f6b6fe8ec93a7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8860107809138701543, guid: 131576652e3875b45b6f6b6fe8ec93a7,
         type: 3}
@@ -3963,6 +3963,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 814533010}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &793638982
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,6 +5018,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 1587762230}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &1096532688
 GameObject:
   m_ObjectHideFlags: 0
@@ -9223,6 +9225,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 1689812060}
   coinType: 0
+  maxCoins: 5
 --- !u!1 &2062589214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2370775575964367463, guid: 131576652e3875b45b6f6b6fe8ec93a7,
@@ -21240,6 +21243,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 4243601082633178528}
   coinType: 2
+  maxCoins: 5
 --- !u!95 &2440741976472082736
 Animator:
   serializedVersion: 3
@@ -21866,6 +21870,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!114 &2586928603541523865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21885,6 +21890,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!114 &2586928603710678515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21904,6 +21910,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!1 &2594723609506568348
 GameObject:
   m_ObjectHideFlags: 0
@@ -27802,6 +27809,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!33 &4463397850843641641
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41852,6 +41860,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 3
+  maxCoins: 5
 --- !u!4 &5717847224576189765
 Transform:
   m_ObjectHideFlags: 0
@@ -53565,6 +53574,7 @@ MonoBehaviour:
   - {fileID: -7369358834756650451, guid: ff1488ce2244b394a976a15e3d562ba4, type: 3}
   spawnPoint: {fileID: 890976649796246519}
   coinType: 1
+  maxCoins: 5
 --- !u!4 &6762388065647963646
 Transform:
   m_ObjectHideFlags: 0
@@ -53698,6 +53708,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 2
+  maxCoins: 5
 --- !u!4 &6793793978974441967
 Transform:
   m_ObjectHideFlags: 0
@@ -61527,7 +61538,39 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1633993598}
-    m_RemovedComponents: []
+    - target: {fileID: 8493485839481928268, guid: 60ba7223b0656a548b96961987b96014,
+        type: 3}
+      propertyPath: waypoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493485839481928268, guid: 60ba7223b0656a548b96961987b96014,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493485839481928268, guid: 60ba7223b0656a548b96961987b96014,
+        type: 3}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1129630913}
+    - target: {fileID: 8493485839481928268, guid: 60ba7223b0656a548b96961987b96014,
+        type: 3}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1774451503}
+    - target: {fileID: 8493485839481928268, guid: 60ba7223b0656a548b96961987b96014,
+        type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 1633993598}
+    - target: {fileID: 8493485839481928268, guid: 60ba7223b0656a548b96961987b96014,
+        type: 3}
+      propertyPath: dustCloud
+      value: 
+      objectReference: {fileID: 4296547570853336377, guid: 7b1e06b35065cc74ab1394e41f493250,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 7870438249950542053, guid: 60ba7223b0656a548b96961987b96014, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60ba7223b0656a548b96961987b96014, type: 3}
 --- !u!1 &7881810473004411356
 GameObject:
@@ -63016,6 +63059,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff3f35b8f37014145923a528b976055e, type: 3}
   isCollided: 0
   potteryType: 4
+  maxCoins: 5
 --- !u!64 &8600865226584927066
 MeshCollider:
   m_ObjectHideFlags: 0
