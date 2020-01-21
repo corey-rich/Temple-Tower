@@ -5,19 +5,26 @@ using UnityEngine.UI;
 
 public class Qte : MonoBehaviour
 {
-    public Canvas qteBar;
+    public Image qteBar;
+    private float startBarHealth = 100;
+    private float barHealth;
+    private int buttonNumber;
 
     public GameObject miles;
-    public GameObject sleepingPuma;
+    public Sprite sleepingPuma;
     // Start is called before the first frame update
     void Start()
     {
-        
+        miles = GameObject.Find("MilesNewWorking");
+        buttonNumber = Random.Range(0, 3);
+        barHealth = startBarHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        qteBar.fillAmount = barHealth / startBarHealth;
+
+        barHealth--;
     }
 }

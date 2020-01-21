@@ -93,6 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad61c44a45b53704c8625b3a945415d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  qteBar: {fileID: 4749877029291190557}
+  miles: {fileID: 0}
+  sleepingPuma: {fileID: 21300000, guid: 39fe16d08b3d9b0499ecd3d5d1261f04, type: 3}
 --- !u!1 &6459209874642760936
 GameObject:
   m_ObjectHideFlags: 0
