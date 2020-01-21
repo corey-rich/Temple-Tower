@@ -4029,6 +4029,46 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510663, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -26.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510662, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510662, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510662, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510662, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510662, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510662, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: m_enableExtraPadding
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860107810469510662, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+        type: 3}
+      propertyPath: checkPaddingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 131576652e3875b45b6f6b6fe8ec93a7, type: 3}
 --- !u!1 &737120024
@@ -5311,6 +5351,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988932989}
   m_Mesh: {fileID: 5248060986329168901, guid: c8e4ba75a752b1146b967c2800eb1758, type: 3}
+--- !u!1 &1028341411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8860107810469510660, guid: 131576652e3875b45b6f6b6fe8ec93a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 732019480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1028341415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028341411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c0c47a64d9dba41a304c3bff7d2c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 0
 --- !u!82 &1046244306
 AudioSource:
   m_ObjectHideFlags: 0
