@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Qte : MonoBehaviour
 {
     public Image qteBar;
+    public GameObject buttonSpawn;
     private float startBarHealth = 100;
     private float barHealth;
     private int buttonNumber;
@@ -16,8 +17,26 @@ public class Qte : MonoBehaviour
     void Start()
     {
         miles = GameObject.Find("MilesNewWorking");
-        buttonNumber = Random.Range(0, 3);
         barHealth = startBarHealth;
+        buttonNumber = Random.Range(0, 3);
+
+        switch (buttonNumber)
+        {
+            case 0:
+                //Instantiate(/*A button prefab*/, buttonSpawn);
+                break;
+            case 1:
+                //Instantiate(/*B button prefab*/, buttonSpawn);
+                break;
+            case 2:
+                //Instantiate(/*X button prefab*/, buttonSpawn);
+                break;
+            case 3:
+                //Instantiate(/*Y button prefab*/, buttonSpawn);
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
