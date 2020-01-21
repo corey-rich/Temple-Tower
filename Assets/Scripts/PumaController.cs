@@ -63,8 +63,8 @@ public class PumaController : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.SetActive(false);
             Instantiate(dustCloud, gameObject.transform.position, gameObject.transform.rotation);
+            playerTarget.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 750, other.gameObject.transform.position.z);
             gameObject.SetActive(false);
         }
     }
