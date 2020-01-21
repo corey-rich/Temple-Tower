@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour {
     public Transform waypointTarget;
     NavMeshAgent agent;
 
+    private bool playerDetect = false;
     private int current = 0;
     private float Wpradius = 1;
 
@@ -26,26 +27,26 @@ public class EnemyController : MonoBehaviour {
 	void Update ()
     {
         float distance = Vector3.Distance(playerTarget.position, transform.position);
-
         speed = 2;
-
         waypointTarget = waypoints[current];
 
         if (distance <= lookRadius)
         {
             speed = 0;
             FacePlayer();
+            playerDetect = true;
             agent.SetDestination(playerTarget.position);
         }
         else
         {
             speed = 2f;
+            playerDetect = false;
             agent.SetDestination(waypoints[current].position);
             transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
             FaceWaypoint();
         }
 
-        if (Vector3.Distance(waypoints[current].transform.position, transform.position) < Wpradius)
+        if (Vector3.Distance(waypoints[current].transform.position, transform.position) < Wpradius && playerDetect == false)
         {
             current++;
             SpriteFlip();
@@ -57,6 +58,7 @@ public class EnemyController : MonoBehaviour {
 
     }
 
+    
     void FaceWaypoint()
     {
         Vector3 direction = (waypointTarget.position - transform.position).normalized;
