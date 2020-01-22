@@ -62,12 +62,13 @@ public class Movement : MonoBehaviour
         text = scoreText.GetComponent<TextMeshProUGUI>();
         isGrounded = false;
         defaultScale = transform.localScale.x; // assuming this is facing right   
-        distanceGround = GetComponent<Collider> ().bounds.extents.y; 
+        //distanceGround = GetComponent<Collider> ().bounds.extents.y; 
     }
     void Update()
     {
         if (isLocked)
         {
+            audioData.Stop(); //stops the whip sound from playing when miles is locked on the floor changing mechanism, but hasnt chosen a direction
             whipAnim.Play("MilesWhipPulledBackIdleStop");
             MilesFrontWalk.enabled = false;
             foreach (GameObject sprites in MilesSprites)
@@ -76,6 +77,8 @@ public class Movement : MonoBehaviour
                 }
             if (Input.GetKeyDown("a") || Input.GetKeyDown("d") || Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
             {
+                audioData.clip=audioClipArray[11]; //plays whip sound after player makes a direction choice
+                audioData.PlayOneShot(audioData.clip);  
                 playedOnce = false;
                 isLocked = false;
                 whipAnim.Play("MilesWhipPulledBackIdle");
@@ -95,6 +98,8 @@ public class Movement : MonoBehaviour
             whipAnim.Play("MilesWhippingFrameByFrame"); //whip estending animation
             if (!isLocked && playedOnce == false)
             {
+                audioData.clip=audioClipArray[11];
+                audioData.PlayOneShot(audioData.clip);  
                 StartCoroutine(WhipAnimationDelay());
                 playedOnce = true;
             }
@@ -306,13 +311,31 @@ public class Movement : MonoBehaviour
         }
 
     }
+
+    /*void FixedUpdate() //version of checking for isGrounded through raycasting
+    {
+        if (!Physics.Raycast (transform.position, -Vector3.up, distanceGround + 0.2f))
+        {
+            isGrounded = false;
+            Debug.Log("Air");
+        }
+        else
+            {
+                isGrounded = true;
+                isJumping = false;
+                Debug.Log("Ground");
+            if (notMoving == true && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
+                IdleAnimation();
+            else if (notMoving == false && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
+                RunAnimation();
+            }   
+    }*/
     void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            isGrounded = true;
-            isJumping = false;
-            
+            isGrounded = true; 
+            isJumping = false;           
             if (notMoving == true && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
                 IdleAnimation();
             else if (notMoving == false && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
@@ -407,7 +430,7 @@ public class Movement : MonoBehaviour
     public void JumpAnimation()
     {
         anim.Play("MilesJump3");
-        frontMiles.speed = 1.0f; //fixes animation desync when rolling and in front facing the camera mode
+        frontMiles.speed = 1.0f; //fixes animation desync when rolling and in the front facing camera mode
         if (isBackTurned)
         {
             frontMiles.Play("MilesBackJump");

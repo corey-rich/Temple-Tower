@@ -47,6 +47,9 @@ TextureImporter:
   - first:
       213: -2051500466025900415
     second: UIPiecesGeneral_14
+  - first:
+      213: -3968928987417328753
+    second: UIPiecesGeneral_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -198,7 +201,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d35c56e45bfc984b81435f0e30df2f6
+      spriteID: 5419bb97ae2c8bf4c8fd766c782b45bd
       internalID: -5252726363261191703
       vertices: []
       indices: 
@@ -206,27 +209,6 @@ TextureImporter:
       weights: []
     - serializedVersion: 2
       name: UIPiecesGeneral_1
-      rect:
-        serializedVersion: 2
-        x: 521
-        y: 507
-        width: 495
-        height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 278a6a6f87088fb47bed736da7c5533b
-      internalID: 6521218845698851232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIPiecesGeneral_2
       rect:
         serializedVersion: 2
         x: 28
@@ -240,7 +222,28 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 494c8b96f6edf7443aa5f45d4bd6e879
+      spriteID: 47fffd01db6be83489e3db4908793f2f
+      internalID: 6521218845698851232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIPiecesGeneral_2
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 787
+        width: 244
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb0406cc611d9f408567e859bb33503
       internalID: 7952369135087826939
       vertices: []
       indices: 
@@ -261,7 +264,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 184d11ee55d3a58408d97348752308da
+      spriteID: bf6be20ffb061e44baed60757bd940c3
       internalID: -3098895112718156142
       vertices: []
       indices: 
@@ -282,7 +285,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5922b7bf32cb624419b41e9f2c92cf21
+      spriteID: da20205fa6b5c2d40a22f7e0adeffe98
       internalID: -4286447433330434672
       vertices: []
       indices: 
@@ -303,7 +306,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759cad27dab3d05408492d908337239b
+      spriteID: bcf9f77878af6da4497ded28f4edc3e0
       internalID: -6757570196221573564
       vertices: []
       indices: 
@@ -324,7 +327,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2a42e8056699344d914b78c9ed5486e
+      spriteID: bf8181b893d583a46a3c60ecfa5aa3d9
       internalID: 1931849154029486466
       vertices: []
       indices: 
@@ -332,6 +335,27 @@ TextureImporter:
       weights: []
     - serializedVersion: 2
       name: UIPiecesGeneral_7
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 567
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921b1a1fb861da1498ecdb3037b48b23
+      internalID: 8895777629783486093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIPiecesGeneral_8
       rect:
         serializedVersion: 2
         x: 6
@@ -345,14 +369,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1766633813138845872246f9fbc5cd3
-      internalID: 8895777629783486093
+      spriteID: 67fe05c0ad1a53140a32a9de909024da
+      internalID: -5407271440637879951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UIPiecesGeneral_8
+      name: UIPiecesGeneral_9
       rect:
         serializedVersion: 2
         x: 24
@@ -366,14 +390,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a03ba322aab68d4a902736eb323d854
-      internalID: -5407271440637879951
+      spriteID: 9f240a7a7e278f04d9e2b7fe3e2e1a32
+      internalID: 9008639025195132045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UIPiecesGeneral_9
+      name: UIPiecesGeneral_10
       rect:
         serializedVersion: 2
         x: 257
@@ -387,28 +411,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec25bc0b2e3ee1e43a398576f0f9f5b7
-      internalID: 9008639025195132045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIPiecesGeneral_10
-      rect:
-        serializedVersion: 2
-        x: 524
-        y: 20
-        width: 495
-        height: 477
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a85be1cc9a470946a4d7a0f88cbb6cb
+      spriteID: 09a41e526be4e0f4f9367a0df48452ec
       internalID: -1620155282378666183
       vertices: []
       indices: 
@@ -429,7 +432,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 453567f8957a39a4bb1f80a9afaf8e12
+      spriteID: 384cdb4b1abda504ba08b5081b8245c4
       internalID: -2618163110868250902
       vertices: []
       indices: 
@@ -450,7 +453,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6acff1a2b664da74d810f5d0db16f6f9
+      spriteID: f2f3daf0c96fe9d48b3200dc417a6c24
       internalID: -654030222244561705
       vertices: []
       indices: 
@@ -458,6 +461,27 @@ TextureImporter:
       weights: []
     - serializedVersion: 2
       name: UIPiecesGeneral_13
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 23
+        width: 357
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1b967182a2ff44b94eb7d9de139347
+      internalID: -8475321503341305399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIPiecesGeneral_14
       rect:
         serializedVersion: 2
         x: 5
@@ -471,14 +495,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d79d089ffbe5dc47802a426dc609684
-      internalID: -8475321503341305399
+      spriteID: 0f6fd91a576413d4b9490a63687551ec
+      internalID: -2051500466025900415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UIPiecesGeneral_14
+      name: UIPiecesGeneral_15
       rect:
         serializedVersion: 2
         x: 229
@@ -492,8 +516,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32c2effb7cb28e44f8f53e04d4746fbd
-      internalID: -2051500466025900415
+      spriteID: 6d204cd58be5aaf4bbb090aaaaea08c9
+      internalID: -3968928987417328753
       vertices: []
       indices: 
       edges: []

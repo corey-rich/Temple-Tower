@@ -15,6 +15,7 @@ TagManager:
   - gold
   - silver
   - Whip
+  - Highlight
   layers:
   - Default
   - TransparentFX
