@@ -7,6 +7,8 @@ public class PumaController : MonoBehaviour {
 
     public float lookRadius = 4f;
     public float speed;
+    public float lockPos = 0;
+    public SpriteRenderer puma;
     public Transform[] waypoints;
 
     public Transform playerTarget;
@@ -56,6 +58,7 @@ public class PumaController : MonoBehaviour {
                 current = 0;
             }
         }
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //prevents puma from turning awkwardly
 
     }
 
@@ -86,10 +89,10 @@ public class PumaController : MonoBehaviour {
 
     void SpriteFlip()
     {
-        if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        else if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        if (puma.GetComponent<SpriteRenderer>().flipX == true) //changed to target sprite renderer in grandchildren, allows more control later on animation wise
+            puma.GetComponent<SpriteRenderer>().flipX = false;
+        else if (puma.GetComponent<SpriteRenderer>().flipX == false)
+            puma.GetComponent<SpriteRenderer>().flipX = true;
     }
 }
 
