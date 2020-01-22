@@ -29,8 +29,8 @@ public class triggerHighlight : MonoBehaviour
         {
             if (other.gameObject.tag == "Player" && isPlaying)
             {
-                //anim.Play("InteractableHighlightControllerFadeOut");
-                anim.SetTrigger("fadeOut");
+                anim.Play("InteractableHighlightControllerFadeOut");
+                //anim.SetTrigger("fadeOut");
                 isPlaying = false;               
             }
         }
