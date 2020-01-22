@@ -1326,7 +1326,7 @@ PrefabInstance:
         type: 3}
       propertyPath: deadMaker
       value: 
-      objectReference: {fileID: 1919231645}
+      objectReference: {fileID: 0}
     - target: {fileID: 3649637254303298753, guid: 60e8c954c04cdcc47812828482097676,
         type: 3}
       propertyPath: audioClipArray.Array.data[10]
@@ -3024,12 +3024,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3132970541707476323, guid: 60e8c954c04cdcc47812828482097676,
     type: 3}
   m_PrefabInstance: {fileID: 382545952}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &629771533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8860107809827335571, guid: 131576652e3875b45b6f6b6fe8ec93a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 732019480}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &630355061 stripped
 GameObject:
@@ -7517,12 +7511,6 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 382545952}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1719974532 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8860107809575051423, guid: 131576652e3875b45b6f6b6fe8ec93a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 732019480}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1744200038
 GameObject:
   m_ObjectHideFlags: 0
@@ -7620,12 +7608,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1038426489959582029, guid: 77399719504dd1e4aa44b51a70434480,
     type: 3}
   m_PrefabInstance: {fileID: 1480972016}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1756305625 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8860107810935751124, guid: 131576652e3875b45b6f6b6fe8ec93a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 732019480}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1770952261
 GameObject:
@@ -8233,33 +8215,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 382545952}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1919231641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8860107810305328996, guid: 131576652e3875b45b6f6b6fe8ec93a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 732019480}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1919231645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919231641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bb5c51134221341b7089673790f763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDead: 0
-  MilesHeads:
-  - {fileID: 629771533}
-  - {fileID: 1719974532}
-  - {fileID: 1756305625}
-  maxHealth: 100
-  curHealth: 100
-  player: {fileID: 0}
-  movement: {fileID: 0}
 --- !u!1 &1923545126
 GameObject:
   m_ObjectHideFlags: 0
@@ -24224,7 +24179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   hurtDelayTime: 0.05
-  healthBar: {fileID: 1919231645}
+  healthBar: {fileID: 0}
   milesScript: {fileID: 1633993599}
 --- !u!114 &3347752371401434758
 MonoBehaviour:
@@ -62419,7 +62374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   hurtDelayTime: 0.05
-  healthBar: {fileID: 1919231645}
+  healthBar: {fileID: 0}
   milesScript: {fileID: 1633993599}
 --- !u!1 &8216853277854480498
 GameObject:
@@ -64398,7 +64353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   hurtDelayTime: 0.05
-  healthBar: {fileID: 1919231645}
+  healthBar: {fileID: 0}
   milesScript: {fileID: 1633993599}
 --- !u!114 &8996590936171915898
 MonoBehaviour:
@@ -64414,7 +64369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   hurtDelayTime: 0.05
-  healthBar: {fileID: 1919231645}
+  healthBar: {fileID: 0}
   milesScript: {fileID: 1633993599}
 --- !u!1 &9005143147979067613
 GameObject:

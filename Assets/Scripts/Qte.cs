@@ -15,6 +15,7 @@ public class Qte : MonoBehaviour
     private float barHealth;
     private int buttonNumber;
 
+    public RedHealthBar healthBar;
     public GameObject vcam;
     public GameObject miles;
     public Sprite sleepingPuma;
@@ -77,7 +78,7 @@ public class Qte : MonoBehaviour
             }
             else if (isSafe == false)
             {
-
+                healthBar.AdjustCurrentHealth(20);
             }
 
             Destroy(gameObject);
@@ -89,19 +90,19 @@ public class Qte : MonoBehaviour
         switch (buttonNumber)
         {
             case 0:
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("w"))
                     barHealth += addValue;
                 break;
             case 1:
-                if (Input.GetButtonDown("Fire5"))
+                if (Input.GetButtonDown("Fire5") || Input.GetKeyDown("a"))
                     barHealth += addValue;
                 break;
             case 2:
-                if (Input.GetButtonDown("Fire3"))
+                if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("s"))
                     barHealth += addValue;
                 break;
             case 3:
-                if (Input.GetButtonDown("Fire6"))
+                if (Input.GetButtonDown("Fire6") || Input.GetKeyDown("d"))
                     barHealth += addValue;
                 break;
             default:
