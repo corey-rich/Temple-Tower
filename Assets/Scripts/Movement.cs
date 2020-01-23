@@ -195,7 +195,7 @@ public class Movement : MonoBehaviour
                 }
             }
             // roll
-            if (isGrounded && !notMoving && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
+            if (isGrounded && !notMoving && !isRolling && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
             {
                 if(!facingFront)
                 {
