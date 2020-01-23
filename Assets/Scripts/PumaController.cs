@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PumaController : MonoBehaviour { 
 
-    public float lookRadius = 4f;
+    public float lookRadius = 6f;
     public float speed;
     public float lockPos = 0;
     public SpriteRenderer puma;
@@ -68,7 +68,8 @@ public class PumaController : MonoBehaviour {
         {
             Instantiate(dustCloud, gameObject.transform.position, gameObject.transform.rotation);
             playerTarget.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 750, other.gameObject.transform.position.z);
-            gameObject.SetActive(false);
+            gameObject.transform.position = new Vector3(500, 500, 500);
+            
         }
     }
 

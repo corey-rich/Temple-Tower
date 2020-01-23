@@ -3,7 +3,13 @@ guid: ad61c44a45b53704c8625b3a945415d5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - qteBar: {instanceID: 0}
+  - buttonSpawn: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - vcam: {instanceID: 0}
+  - miles: {instanceID: 0}
+  - sleepingPuma: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

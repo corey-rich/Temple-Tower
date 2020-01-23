@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     public float jumpWaitTime;
     public float fallDelayTime;
     public float jumpForce = 6;
+    public string pumaName;
     public bool isJumping = false;
     public bool isDead = false;
     public bool isPaused = false;
@@ -310,6 +311,10 @@ public class Movement : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.tag == "puma")
+        {
+            pumaName = collision.gameObject.name;
+        }
     }
 
     /*void FixedUpdate() //version of checking for isGrounded through raycasting
