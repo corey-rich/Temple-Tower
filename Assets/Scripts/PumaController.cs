@@ -49,7 +49,7 @@ public class PumaController : MonoBehaviour {
             }
         }
         float distance2 = Vector3.Distance(waypoints[current].transform.position, transform.position);
-        if (distance2 > 10)
+        if (distance2 > 25)
         {
             transform.position = waypoints[current].transform.position;
         }
