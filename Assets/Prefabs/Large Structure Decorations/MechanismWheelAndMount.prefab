@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 8672614383536545472}
   - component: {fileID: 5540512849532831272}
   - component: {fileID: 8191213704473059930}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ScrollRopeDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 5350380270991967586}
   - component: {fileID: 4188835387896871087}
   - component: {fileID: 8099483586656520021}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ScrollRopeUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,7 +1111,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7792010860283274502}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
