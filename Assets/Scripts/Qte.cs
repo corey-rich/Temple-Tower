@@ -71,7 +71,7 @@ public class Qte : MonoBehaviour
             }
             else if (isSafe == false)
             {
-                //puma.transform.position = pumaSpawn.transform.position;
+                puma.transform.position = pumaSpawn.transform.position;
                 playerHealth.GetComponent<RedHealthBar>().AdjustCurrentHealth(20);
             }
 

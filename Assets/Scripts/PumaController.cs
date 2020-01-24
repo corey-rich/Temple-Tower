@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PumaController : MonoBehaviour { 
 
-    public float lookRadius = 6f;
+    public float lookRadius = 20f;
     public float speed;
     public float lockPos = 0;
     public SpriteRenderer puma;
@@ -20,31 +20,21 @@ public class PumaController : MonoBehaviour {
     private int current = 0;
     private float Wpradius = 1;
 
-    // Use this for initialization
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
-
     // Update is called once per frame
     void Update()
     {
         float distance = Vector3.Distance(playerTarget.position, transform.position);
-        speed = 2;
         waypointTarget = waypoints[current];
 
         if (distance <= lookRadius)
         {
-            speed = 0;
             FacePlayer();
             playerDetect = true;
-            agent.SetDestination(playerTarget.position);
+            transform.position = Vector3.MoveTowards(transform.position, playerTarget.transform.position, Time.deltaTime * speed * 2f);
         }
         else
         {
-            speed = 2f;
             playerDetect = false;
-            agent.SetDestination(waypoints[current].position);
             transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
             FaceWaypoint();
         }

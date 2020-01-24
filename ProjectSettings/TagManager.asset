@@ -16,6 +16,7 @@ TagManager:
   - silver
   - Whip
   - Highlight
+  - puma
   layers:
   - Default
   - TransparentFX
