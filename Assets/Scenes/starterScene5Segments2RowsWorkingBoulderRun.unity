@@ -18746,11 +18746,21 @@ PrefabInstance:
       propertyPath: waypointTarget
       value: 
       objectReference: {fileID: 1050325593}
+    - target: {fileID: 1652617351836127368, guid: b4af58e2724d9b647a9370fccd4ebcf8,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1652617351030853373, guid: b4af58e2724d9b647a9370fccd4ebcf8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee305e198e17e1d4eb271af3b059d3c0, type: 2}
+    - target: {fileID: 1652617351030853373, guid: b4af58e2724d9b647a9370fccd4ebcf8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1652617351030853344, guid: b4af58e2724d9b647a9370fccd4ebcf8,
         type: 3}
       propertyPath: m_Layer
