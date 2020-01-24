@@ -58,7 +58,12 @@ public class PumaController : MonoBehaviour {
                 current = 0;
             }
         }
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //prevents puma from turning awkwardly
+        float distance2 = Vector3.Distance(waypoints[current].transform.position, transform.position);
+        if (distance2 > 10)
+        {
+            transform.position = waypoints[current].transform.position;
+        }
+        //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //prevents puma from turning awkwardly
 
     }
 
