@@ -10,6 +10,7 @@ public class PumaController : MonoBehaviour {
     public float lockPos = 0;
     public SpriteRenderer puma;
     public Transform[] waypoints;
+    public AudioSource pumaGrowl;
 
     public Transform playerTarget;
     public Transform waypointTarget;
@@ -83,6 +84,7 @@ public class PumaController : MonoBehaviour {
         Vector3 direction = (playerTarget.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z + 90));
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 30f);
+        pumaGrowl.Play();
     }
 
     void SpriteFlip()
