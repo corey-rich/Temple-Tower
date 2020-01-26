@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public Animator whipAnim; //this is connected to the whip which has the animation WhipExtend on it to play the whip animation
     private AudioSource audioData;
     public AudioClip[] audioClipArray;
+    public cameraShake shake;
     float defaultScale; 
     public float distanceGround;
     public float speed;
@@ -82,6 +83,7 @@ public class Movement : MonoBehaviour
                 audioData.PlayOneShot(audioData.clip);  
                 playedOnce = false;
                 isLocked = false;
+                shake.triggerShakeBig();
                 whipAnim.Play("MilesWhipPulledBackIdle");
             }
         }

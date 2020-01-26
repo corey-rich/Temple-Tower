@@ -14,6 +14,7 @@ public class PumaController : MonoBehaviour {
     public Transform playerTarget;
     public Transform waypointTarget;
     public GameObject dustCloud;
+    public transitionController transition;
     NavMeshAgent agent;
 
     private bool playerDetect = false;
@@ -61,6 +62,8 @@ public class PumaController : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            transition.QTEtrigger();
+            //Debug.Log("QTE shouldve fired"); this didnt fire the animation, trying an alternative
             Instantiate(dustCloud, gameObject.transform.position, gameObject.transform.rotation);
             playerTarget.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 750, other.gameObject.transform.position.z);
             gameObject.transform.position = new Vector3(500, 500, 500);

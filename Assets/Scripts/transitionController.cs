@@ -24,6 +24,11 @@ public class transitionController : MonoBehaviour
         }
   
     }
+    public void QTEtrigger()
+    {
+        //transitionAnim.SetTrigger("QTEtrigger");
+        transitionAnim.Play("QTEIntro");
+    }
     IEnumerator toggleFadein()
     {
         if(firstFadein)
