@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour
     public int score;
     public bool facingFront = false;
     public GameObject scoreText;
+    public GameObject pauseMenu;
     private TextMeshProUGUI text;
     private int greenValue = 5;
     private int goldValue = 10;
@@ -68,173 +69,176 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (isLocked)
+        if(!isPaused)
         {
-            audioData.Stop(); //stops the whip sound from playing when miles is locked on the floor changing mechanism, but hasnt chosen a direction
-            whipAnim.Play("MilesWhipPulledBackIdleStop");
-            MilesFrontWalk.enabled = false;
-            foreach (GameObject sprites in MilesSprites)
+            if (isLocked)
+            {
+                audioData.Stop(); //stops the whip sound from playing when miles is locked on the floor changing mechanism, but hasnt chosen a direction
+                whipAnim.Play("MilesWhipPulledBackIdleStop");
+                MilesFrontWalk.enabled = false;
+                foreach (GameObject sprites in MilesSprites)
+                    {
+                        sprites.GetComponent<SpriteRenderer>().enabled = false;
+                    }
+                if (Input.GetKeyDown("a") || Input.GetKeyDown("d") || Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
+                {
+                    audioData.clip=audioClipArray[11]; //plays whip sound after player makes a direction choice
+                    audioData.PlayOneShot(audioData.clip);  
+                    playedOnce = false;
+                    isLocked = false;
+                    shake.triggerShakeBig();
+                    whipAnim.Play("MilesWhipPulledBackIdle");
+                }
+            }
+            if (isDead)
+            {
+                SceneManager.LoadScene("DeathScene");
+            }
+            else if (isWhipping && isGrounded && !isLocked && !justJumped  && !isRolling && !playedOnce)
+            {
+                foreach (GameObject sprites in MilesSprites)
                 {
                     sprites.GetComponent<SpriteRenderer>().enabled = false;
                 }
-            if (Input.GetKeyDown("a") || Input.GetKeyDown("d") || Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
-            {
-                audioData.clip=audioClipArray[11]; //plays whip sound after player makes a direction choice
-                audioData.PlayOneShot(audioData.clip);  
-                playedOnce = false;
-                isLocked = false;
-                shake.triggerShakeBig();
-                whipAnim.Play("MilesWhipPulledBackIdle");
+                MilesFrontWalk.enabled = false;
+                whipAnim.Play("MilesWhippingFrameByFrame"); //whip estending animation
+                if (!isLocked && playedOnce == false)
+                {
+                    audioData.clip=audioClipArray[11];
+                    audioData.PlayOneShot(audioData.clip);  
+                    StartCoroutine(WhipAnimationDelay());
+                    playedOnce = true;
+                }
             }
-        }
-        if (isDead)
-        {
-            SceneManager.LoadScene("DeathScene");
-        }
-        else if (isWhipping && isGrounded && !isLocked && !justJumped  && !isRolling && !playedOnce)
-        {
-            foreach (GameObject sprites in MilesSprites)
+            else if (!isWhipping && !isLocked)
             {
-                sprites.GetComponent<SpriteRenderer>().enabled = false;
-            }
-            MilesFrontWalk.enabled = false;
-            whipAnim.Play("MilesWhippingFrameByFrame"); //whip estending animation
-            if (!isLocked && playedOnce == false)
-            {
-                audioData.clip=audioClipArray[11];
-                audioData.PlayOneShot(audioData.clip);  
-                StartCoroutine(WhipAnimationDelay());
-                playedOnce = true;
-            }
-        }
-        else if (!isWhipping && !isLocked)
-        {
-            // moves character
-            if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
-            {
-                notMoving = false;
-            }
-            else
-            {
-                notMoving = true;
-            }
-            if (MilesFrontWalk && !facingFront)
-            {
-                TurnOffFrontWalk();
-            }    
-            transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
+                // moves character
+                if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
+                {
+                    notMoving = false;
+                }
+                else
+                {
+                    notMoving = true;
+                }
+                if (MilesFrontWalk && !facingFront)
+                {
+                    TurnOffFrontWalk();
+                }    
+                transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
 
-            if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
-            {
-                if(isGrounded && !isRolling && !justJumped)
+                if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
                 {
-                    isWhipping = true;
-                    Debug.Log("Whipping");
-                }
-            } //press mouse button to whip        
+                    if(isGrounded && !isRolling && !justJumped)
+                    {
+                        isWhipping = true;
+                        Debug.Log("Whipping");
+                    }
+                } //press mouse button to whip        
 
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                //player is going right
-                isBackTurned = false;
-                transform.localScale = new Vector3(defaultScale, transform.localScale.y, transform.localScale.z);
-                whip.sortingOrder = 10;
-                if(facingFront  && !notMoving)
+                if (Input.GetAxis("Horizontal") > 0)
                 {
-                    RunAnimation();
-                }
-                else if(facingFront && notMoving)
-                {
-                    anim.Play("MilesIdle"); 
-                }
-            }
-            else if (Input.GetAxis("Horizontal") < 0)
-            {
-                //player is going left
-                isBackTurned = false;
-                transform.localScale = new Vector3(-defaultScale, transform.localScale.y, transform.localScale.z);
-                whip.sortingOrder = 0;
-                if(facingFront && !notMoving)
-                {
-                    RunAnimation();
-                }
-                else if(facingFront && notMoving)
-                {
-                    anim.Play("MilesIdle"); 
-                }
-            }
-            //character moving toward camera
-            if (Input.GetAxis("Vertical") < 0)
-            {
-                if (Input.GetAxis("Horizontal") == 0)
-                {
-                    foreach (GameObject sprites in MilesSprites)
-                    {
-                        sprites.GetComponent<SpriteRenderer>().enabled = false;
-                    }
-                    MilesFrontWalk.enabled = true;
-                    if (!justJumped && isGrounded)
-                    {
-                        frontMiles.Play("MilesFrontRunCycle");
-                    }
+                    //player is going right
                     isBackTurned = false;
-                }
-            }
-            //character moving away from camera
-            if (Input.GetAxis("Vertical") > 0)
-            {
-                if (Input.GetAxis("Horizontal") == 0)
-                {
-                    foreach (GameObject sprites in MilesSprites)
+                    transform.localScale = new Vector3(defaultScale, transform.localScale.y, transform.localScale.z);
+                    whip.sortingOrder = 10;
+                    if(facingFront  && !notMoving)
                     {
-                        sprites.GetComponent<SpriteRenderer>().enabled = false;
+                        RunAnimation();
                     }
-                    MilesFrontWalk.enabled = true;
-                    if (!justJumped && isGrounded)
+                    else if(facingFront && notMoving)
                     {
-                        frontMiles.Play("MilesBackRunCycle");
+                        anim.Play("MilesIdle"); 
                     }
-                    isBackTurned = true;
                 }
-            }
-            // roll
-            if (isGrounded && !notMoving && !isRolling && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
-            {
-                if(!facingFront)
+                else if (Input.GetAxis("Horizontal") < 0)
                 {
-                    speed += rollSpeed;
-                    isRolling = true;
-                    RollAnimation();
-                    StartCoroutine(RollBack());
+                    //player is going left
+                    isBackTurned = false;
+                    transform.localScale = new Vector3(-defaultScale, transform.localScale.y, transform.localScale.z);
+                    whip.sortingOrder = 0;
+                    if(facingFront && !notMoving)
+                    {
+                        RunAnimation();
+                    }
+                    else if(facingFront && notMoving)
+                    {
+                        anim.Play("MilesIdle"); 
+                    }
                 }
-                else if(facingFront && !isRolling) //removing !isRolling causes the player to infinitely speedup
+                //character moving toward camera
+                if (Input.GetAxis("Vertical") < 0)
                 {
-                    speed += rollSpeed;
-                    isRolling = true;
-                    frontMiles.speed = 1.8f;
-                    StartCoroutine(RollBack());
+                    if (Input.GetAxis("Horizontal") == 0)
+                    {
+                        foreach (GameObject sprites in MilesSprites)
+                        {
+                            sprites.GetComponent<SpriteRenderer>().enabled = false;
+                        }
+                        MilesFrontWalk.enabled = true;
+                        if (!justJumped && isGrounded)
+                        {
+                            frontMiles.Play("MilesFrontRunCycle");
+                        }
+                        isBackTurned = false;
+                    }
                 }
-            }
-            // roll back
-            if (isGrounded && rollStop)
-            {
-                speed -= rollSpeed;
-                isRolling = false;
-                rollStop = false;
-            }
-            // applies force vertically if the space key is pressed
-            if (isGrounded && (Input.GetKeyDown("space") || Input.GetButton("Fire1")))
-            {
-                if (justJumped == false && isJumping == false)
+                //character moving away from camera
+                if (Input.GetAxis("Vertical") > 0)
                 {
-                    rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-                    justJumped = true;
-                    isJumping = true;
-                    JumpAnimation();
-                    PlayerJumpSound();
-                    StartCoroutine(JumpReset());
+                    if (Input.GetAxis("Horizontal") == 0)
+                    {
+                        foreach (GameObject sprites in MilesSprites)
+                        {
+                            sprites.GetComponent<SpriteRenderer>().enabled = false;
+                        }
+                        MilesFrontWalk.enabled = true;
+                        if (!justJumped && isGrounded)
+                        {
+                            frontMiles.Play("MilesBackRunCycle");
+                        }
+                        isBackTurned = true;
+                    }
                 }
-            }
+                // roll
+                if (isGrounded && !notMoving && !isRolling && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
+                {
+                    if(!facingFront)
+                    {
+                        speed += rollSpeed;
+                        isRolling = true;
+                        RollAnimation();
+                        StartCoroutine(RollBack());
+                    }
+                    else if(facingFront && !isRolling) //removing !isRolling causes the player to infinitely speedup
+                    {
+                        speed += rollSpeed;
+                        isRolling = true;
+                        frontMiles.speed = 1.8f;
+                        StartCoroutine(RollBack());
+                    }
+                }
+                // roll back
+                if (isGrounded && rollStop)
+                {
+                    speed -= rollSpeed;
+                    isRolling = false;
+                    rollStop = false;
+                }
+                // applies force vertically if the space key is pressed
+                if (isGrounded && (Input.GetKeyDown("space") || Input.GetButton("Fire1")))
+                {
+                    if (justJumped == false && isJumping == false)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                        justJumped = true;
+                        isJumping = true;
+                        JumpAnimation();
+                        PlayerJumpSound();
+                        StartCoroutine(JumpReset());
+                    }
+                }
+        }
 
         }
         // coins
