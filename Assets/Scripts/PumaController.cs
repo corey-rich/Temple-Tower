@@ -67,7 +67,7 @@ public class PumaController : MonoBehaviour {
             Instantiate(dustCloud, gameObject.transform.position, gameObject.transform.rotation);
             playerTarget.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 750, other.gameObject.transform.position.z);
             gameObject.transform.position = new Vector3(500, 500, 500);
-            
+            pumaGrowl.Play();         
         }
     }
 
@@ -84,7 +84,6 @@ public class PumaController : MonoBehaviour {
         Vector3 direction = (playerTarget.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z + 90));
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 30f);
-        pumaGrowl.Play();
     }
 
     void SpriteFlip()
