@@ -93,5 +93,6 @@ public class PumaController : MonoBehaviour {
         else if (puma.GetComponent<SpriteRenderer>().flipX == false)
             puma.GetComponent<SpriteRenderer>().flipX = true;
     }
+
 }
 

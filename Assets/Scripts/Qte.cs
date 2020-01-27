@@ -17,6 +17,7 @@ public class Qte : MonoBehaviour
     private float startBarHealth = 100;
     private float barHealth;
     private int buttonNumber;
+    //private Vector3 pumaCords;
 
     public GameObject playerHealth;
     public GameObject[] buttonPrefabs;
@@ -31,15 +32,14 @@ public class Qte : MonoBehaviour
         miles = GameObject.Find("MilesNewWorking");
         cameraFollow = GameObject.Find("CameraFollowsThisObject");
         playerHealth = GameObject.Find("RedHealth");
+        pumaSpawn = GameObject.Find("Puma1WP");
         barHealth = startBarHealth;
         buttonNumber = Random.Range(0, 3);
         vcam = GameObject.Find("CM vcam1");
         pumaName = miles.GetComponent<Movement>().pumaName;
         puma = GameObject.Find(pumaName);
-
         vcam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
-
-        Instantiate(buttonPrefabs[buttonNumber], buttonSpawn.transform);
+        StartCoroutine(ButtonSpawnDelay());
     }
 
     // Update is called once per frame
@@ -116,5 +116,10 @@ public class Qte : MonoBehaviour
             isSafe = false;
         else
             isSafe = true;
+    }
+    IEnumerator ButtonSpawnDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(buttonPrefabs[buttonNumber], buttonSpawn.transform);
     }
 }
