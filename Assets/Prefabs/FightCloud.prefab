@@ -107,8 +107,10 @@ MonoBehaviour:
   - {fileID: 7656891449451773001, guid: 6345240aa181f28429c4d612c979d001, type: 3}
   vcam: {fileID: 0}
   miles: {fileID: 0}
+  cameraFollow: {fileID: 0}
   puma: {fileID: 0}
-  sleepingPuma: {fileID: 21300000, guid: 39fe16d08b3d9b0499ecd3d5d1261f04, type: 3}
+  sleepingPuma: {fileID: 133892591607095856, guid: 520d96ec29f3360429877053a75aa40d,
+    type: 3}
 --- !u!1 &6292488132426228546
 GameObject:
   m_ObjectHideFlags: 0

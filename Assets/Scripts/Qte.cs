@@ -24,7 +24,7 @@ public class Qte : MonoBehaviour
     public GameObject miles;
     public GameObject cameraFollow;
     public GameObject puma;
-    public Sprite sleepingPuma;
+    public GameObject sleepingPuma;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +69,7 @@ public class Qte : MonoBehaviour
 
             if (isSafe == true)
             {
-                Instantiate(sleepingPuma);
+                Instantiate(sleepingPuma, miles.transform.position, Quaternion.identity);
             }
             else if (isSafe == false)
             {
