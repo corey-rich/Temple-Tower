@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
     public GameObject scoreText;
     public GameObject pauseMenu;
     private TextMeshProUGUI text;
+    public ParticleSystem fartParticles;
     private int greenValue = 5;
     private int goldValue = 10;
     private int silverValue = 25;
@@ -51,7 +52,7 @@ public class Movement : MonoBehaviour
     private int isSilver = 0;
     private int counter = 0;
     public bool playedOnce = false;
-    public bool playedOnce2 = false;
+    public bool fartJumpCooldown = false;
     void Awake()
     {
         audioData = GetComponent<AudioSource>();
@@ -200,6 +201,26 @@ public class Movement : MonoBehaviour
                         isBackTurned = true;
                     }
                 }
+                if(Input.GetKeyDown(KeyCode.F))
+                {
+                    if(isGrounded && notMoving)
+                    {
+                        anim.Play("MilesFart");
+                        fartParticles.Play();
+                    }
+                    if(!isGrounded && (!notMoving || notMoving))
+                    {
+                        anim.Play("MilesFart");
+                        fartParticles.Play();
+                    }
+                    if(!isGrounded  && !fartJumpCooldown) 
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                        fartJumpCooldown = true;
+                        fartParticles.Play();
+                    }       
+                          
+                }
                 // roll
                 if (isGrounded && !notMoving && !isRolling && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
                 {
@@ -346,7 +367,8 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true; 
-            isJumping = false;           
+            isJumping = false;  
+            fartJumpCooldown = false;         
             if (notMoving == true && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
                 IdleAnimation();
             else if (notMoving == false && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
