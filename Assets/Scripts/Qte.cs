@@ -22,12 +22,14 @@ public class Qte : MonoBehaviour
     public GameObject[] buttonPrefabs;
     public GameObject vcam;
     public GameObject miles;
+    public GameObject cameraFollow;
     public GameObject puma;
     public Sprite sleepingPuma;
     // Start is called before the first frame update
     void Start()
     {
         miles = GameObject.Find("MilesNewWorking");
+        cameraFollow = GameObject.Find("CameraFollowsThisObject");
         playerHealth = GameObject.Find("RedHealth");
         barHealth = startBarHealth;
         buttonNumber = Random.Range(0, 3);
@@ -63,7 +65,7 @@ public class Qte : MonoBehaviour
         if (qteOver == true)
         {
             miles.transform.position = gameObject.transform.position;
-            vcam.GetComponent<CinemachineVirtualCamera>().Follow = miles.transform;
+            vcam.GetComponent<CinemachineVirtualCamera>().Follow = cameraFollow.transform;
 
             if (isSafe == true)
             {
