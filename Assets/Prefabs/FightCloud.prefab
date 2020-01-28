@@ -141,7 +141,7 @@ MonoBehaviour:
   miles: {fileID: 0}
   cameraFollow: {fileID: 0}
   puma: {fileID: 0}
-  sleepingPuma: {fileID: 133892591607095856, guid: 520d96ec29f3360429877053a75aa40d,
+  sleepingPuma: {fileID: 133892591607095856, guid: 89648a2c48ce69346be8b66e53c25588,
     type: 3}
 --- !u!95 &7640147632168421378
 Animator:
