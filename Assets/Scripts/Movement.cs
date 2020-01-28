@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
     public float jumpWaitTime;
     public float fallDelayTime;
     public float jumpForce = 6;
+    public float timeInAir = 0;
+    public float maxAirTime = 0;
     public string pumaName;
     public bool isJumping = false;
     public bool isDead = false;
@@ -53,7 +55,8 @@ public class Movement : MonoBehaviour
     private int isSilver = 0;
     private int counter = 0;
     public bool playedOnce = false;
-    public bool firstDropQuake = false;
+    public bool playedOnce2 = false;
+    public bool bigDropQuake = false;
     public bool fartJumpCooldown = false;
     void Awake()
     {
@@ -201,6 +204,22 @@ public class Movement : MonoBehaviour
                             frontMiles.Play("MilesBackRunCycle");
                         }
                         isBackTurned = true;
+                    }
+                }
+                if(!isGrounded)
+                {
+                    timeInAir += Time.deltaTime;
+                    Debug.Log(timeInAir);
+                }
+                if(timeInAir > maxAirTime )
+                {
+                    if(timeInAir > 6f)
+                    {
+                        bigDropQuake = false;
+                    }
+                    else if(timeInAir < 6f)
+                    {
+                        bigDropQuake = true;
                     }
                 }
                 if(Input.GetKeyDown(KeyCode.F))
@@ -366,23 +385,22 @@ public class Movement : MonoBehaviour
     }*/
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" && bigDropQuake)
+        {
+            MilesHeroLanding();
+        }
+        else if(collision.gameObject.tag == "Ground" && !bigDropQuake)
         {
             isGrounded = true; 
+            timeInAir = 0;
             isJumping = false;  
             fartJumpCooldown = false;         
             if (notMoving == true && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
                 IdleAnimation();
             else if (notMoving == false && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
                 RunAnimation();
-            if(firstDropQuake)
-            {
-                cameraShake.GetComponent<cameraShake>().triggerShakeSmall();    
-                firstDropQuake = false;      
-                audioData.clip=audioClipArray[12];
-                audioData.PlayOneShot(audioData.clip);      
-            }
         }
+    
     }
     void OnCollisionExit(Collision collision)
     {
@@ -505,6 +523,26 @@ public class Movement : MonoBehaviour
         audioData.clip=audioClipArray[Random.Range(3,6)];
         //audioData.Stop();
         audioData.PlayOneShot(audioData.clip);
+    }
+    public void MilesHeroLanding()
+    {
+        if(!playedOnce2)
+        {
+            anim.Play("MilesHeroLanding");
+            Debug.Log("worked");
+            cameraShake.GetComponent<cameraShake>().triggerShakeSmall();         
+            audioData.clip=audioClipArray[12];
+            audioData.PlayOneShot(audioData.clip);
+            playedOnce2 = true;
+            timeInAir = 0;
+            StartCoroutine(MilesHeroLandingDelay()); 
+        } 
+    }
+    IEnumerator MilesHeroLandingDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        bigDropQuake = false;
+        playedOnce2 = false;
     }
     IEnumerator RollBack()
     {
