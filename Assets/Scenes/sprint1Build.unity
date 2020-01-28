@@ -1086,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308514734}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -40.6, y: 9.690001, z: 3.5}
+  m_LocalPosition: {x: -40.6, y: 9.6875, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2039196109}
@@ -7362,7 +7362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254321236}
   - component: {fileID: 1254321237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Woodswithshrubs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10822,7 +10822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975784625}
   - component: {fileID: 1975784626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpiderWebSprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12071,7 +12071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2123428653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WoodyVineWithShrubs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43946,6 +43946,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spiderweb
       objectReference: {fileID: 0}
+    - target: {fileID: 1943239799099166033, guid: 188c3d0ccedc5694cb78bd51a16036f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8238761473246068094, guid: 188c3d0ccedc5694cb78bd51a16036f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44000,6 +44005,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224780264698366165, guid: 188c3d0ccedc5694cb78bd51a16036f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6413696640067660751, guid: 188c3d0ccedc5694cb78bd51a16036f0,
         type: 3}
