@@ -17,6 +17,7 @@ TagManager:
   - Whip
   - Highlight
   - puma
+  - quakeZone
   layers:
   - Default
   - TransparentFX

@@ -42,6 +42,7 @@ public class Movement : MonoBehaviour
     public bool facingFront = false;
     public GameObject scoreText;
     public GameObject pauseMenu;
+    public GameObject cameraShake;
     private TextMeshProUGUI text;
     public ParticleSystem fartParticles;
     private int greenValue = 5;
@@ -52,6 +53,7 @@ public class Movement : MonoBehaviour
     private int isSilver = 0;
     private int counter = 0;
     public bool playedOnce = false;
+    public bool firstDropQuake = false;
     public bool fartJumpCooldown = false;
     void Awake()
     {
@@ -65,7 +67,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         text = scoreText.GetComponent<TextMeshProUGUI>();
         isGrounded = false;
-        defaultScale = transform.localScale.x; // assuming this is facing right   
+        defaultScale = transform.localScale.x; // assuming this is facing right 
         //distanceGround = GetComponent<Collider> ().bounds.extents.y; 
     }
     void Update()
@@ -373,6 +375,11 @@ public class Movement : MonoBehaviour
                 IdleAnimation();
             else if (notMoving == false && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
                 RunAnimation();
+            if(firstDropQuake)
+            {
+                cameraShake.GetComponent<cameraShake>().triggerShakeSmall();    
+                firstDropQuake = false;           
+            }
         }
     }
     void OnCollisionExit(Collision collision)
