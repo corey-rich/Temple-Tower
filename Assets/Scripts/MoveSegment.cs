@@ -131,7 +131,14 @@ public class MoveSegment : MonoBehaviour
 
     public void MoveAnim()
     {
-        anim.Play("FloorMechanismTurnLeft");
+        if(isLeft)
+        {
+            anim.Play("FloorMechanismTurnLeft");
+        }
+        if(!isLeft)
+        {
+            anim.Play("FloorMechanismTurnRight");
+        }
         Rockslide.Play();
     }
     IEnumerator MinimapHideDelay()
