@@ -1123,7 +1123,7 @@ GameObject:
   - component: {fileID: 308514738}
   - component: {fileID: 308514737}
   - component: {fileID: 308514736}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: WaterfallThin (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6224,7 +6224,7 @@ GameObject:
   - component: {fileID: 1070135127}
   - component: {fileID: 1070135126}
   - component: {fileID: 1070135125}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: WaterfallThin (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9995,7 +9995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1932583984
 Light:
   m_ObjectHideFlags: 0
@@ -10150,7 +10150,7 @@ GameObject:
   - component: {fileID: 1956168866}
   - component: {fileID: 1956168865}
   - component: {fileID: 1956168864}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: WaterfallThin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11055,7 +11055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &2046653180
 Light:
   m_ObjectHideFlags: 0
@@ -25780,7 +25780,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5835749d64e8d50479ea5b3e1ce98b35, type: 3}
   - {fileID: 8300000, guid: 134b6afa815b52a418d12ff568a5fdcf, type: 3}
   - {fileID: 8300000, guid: a3cd8da49d266e140aca4ab9556a0e09, type: 3}
-  - {fileID: 8300000, guid: a3cd8da49d266e140aca4ab9556a0e09, type: 3}
+  - {fileID: 8300000, guid: b56c66c6b3238d344946fe4836df487c, type: 3}
   shake: {fileID: 1733947027}
   distanceGround: 0
   speed: 3.7

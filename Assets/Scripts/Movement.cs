@@ -378,7 +378,9 @@ public class Movement : MonoBehaviour
             if(firstDropQuake)
             {
                 cameraShake.GetComponent<cameraShake>().triggerShakeSmall();    
-                firstDropQuake = false;           
+                firstDropQuake = false;      
+                audioData.clip=audioClipArray[12];
+                audioData.PlayOneShot(audioData.clip);      
             }
         }
     }
