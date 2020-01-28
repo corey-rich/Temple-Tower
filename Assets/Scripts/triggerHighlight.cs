@@ -21,7 +21,8 @@ public class triggerHighlight : MonoBehaviour
         {
             if (other.gameObject.tag == "Player" && !isPlaying)
             {
-                anim.Play("InteractableHighlightControllerFadeIn"); 
+                //anim.Play("InteractableHighlightControllerFadeIn"); 
+                anim.SetTrigger("fadeIn");
                 isPlaying = true;               
             }
         }
