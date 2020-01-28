@@ -7,12 +7,16 @@ public class transitionController : MonoBehaviour
 {
     public Animator transitionAnim;
     public string sceneName;
-    private bool firstFadein;
+    public bool startsAlreadyFadedIn = true;
+    private bool fadedIn = false;
     // Start is called before the first frame update
     void Start()
     {
-        transitionAnim.SetTrigger("fadeIn");
-        firstFadein = true;         
+        if(!startsAlreadyFadedIn && !fadedIn)
+        {
+            transitionAnim.Play("FadeIn");
+            fadedIn = true;
+        }        
     }
 
     // Update is called once per frame
@@ -31,15 +35,16 @@ public class transitionController : MonoBehaviour
     }
     IEnumerator toggleFadein()
     {
-        if(firstFadein)
+        if(startsAlreadyFadedIn || fadedIn)
         {
-            transitionAnim.SetTrigger("fadeOut"); 
-            firstFadein = false;
+            transitionAnim.Play("FadeOut"); 
+            fadedIn = false;
+            startsAlreadyFadedIn = false;
         }
-        else if(!firstFadein)
+        else if(!fadedIn)
         {
-            transitionAnim.SetTrigger("fadeIn");
-            firstFadein = true;
+            transitionAnim.Play("FadeIn");
+            fadedIn = true;
         }
 
      yield return new WaitForSeconds(1.5f);
