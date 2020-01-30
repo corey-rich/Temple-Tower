@@ -32,7 +32,6 @@ public class Qte : MonoBehaviour
         miles = GameObject.Find("MilesNewWorking");
         cameraFollow = GameObject.Find("CameraFollowsThisObject");
         playerHealth = GameObject.Find("RedHealth");
-        pumaSpawn = GameObject.Find("Puma1WP");
         barHealth = startBarHealth;
         buttonNumber = Random.Range(0, 3);
         vcam = GameObject.Find("CM vcam1");
@@ -69,11 +68,13 @@ public class Qte : MonoBehaviour
 
             if (isSafe == true)
             {
+                Destroy(puma);
                 Instantiate(sleepingPuma, miles.transform.position, Quaternion.identity);
             }
             else if (isSafe == false)
             {
                 puma.transform.position = pumaSpawn.transform.position;
+                puma.GetComponent<PumaController>().speed = 2;
                 playerHealth.GetComponent<RedHealthBar>().AdjustCurrentHealth(20);
             }
 

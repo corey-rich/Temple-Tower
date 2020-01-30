@@ -21,16 +21,16 @@ public class TrueGroundChecker : MonoBehaviour
     void OnTriggerEnter(Collider other) 
     {
         movement.isGrounded = true;
-        Debug.Log("Not Jumping");
+        //Debug.Log("Not Jumping");
     }
     void OnTriggerStay(Collider other) 
     {
         movement.isGrounded = true;
-        Debug.Log("Not Jumping");
+        //Debug.Log("Not Jumping");
     }
     void OnTriggerExit(Collider other)
     {
         movement.isGrounded = false; 
-        Debug.Log("Jumping");
+        //Debug.Log("Jumping");
     }
 }

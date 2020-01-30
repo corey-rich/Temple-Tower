@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class PumaController : MonoBehaviour { 
 
-    public float lookRadius = 20f;
+    public float lookRadius;
     public float speed;
     public float lockPos = 0;
     public SpriteRenderer puma;
     public Transform[] waypoints;
     public AudioSource pumaGrowl;
+    public Transform startingPosition;
 
     public Transform playerTarget;
     public Transform waypointTarget;
@@ -21,6 +22,11 @@ public class PumaController : MonoBehaviour {
     private bool playerDetect = false;
     private int current = 0;
     private float Wpradius = 1;
+
+    private void Start()
+    {
+        startingPosition = gameObject.transform;
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,11 +56,11 @@ public class PumaController : MonoBehaviour {
                 current = 0;
             }
         }
-        float distance2 = Vector3.Distance(waypoints[current].transform.position, transform.position);
+        /*float distance2 = Vector3.Distance(waypoints[current].transform.position, transform.position);
         if (distance2 > 25)
         {
             transform.position = waypoints[current].transform.position;
-        }
+        }*/
         //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //prevents puma from turning awkwardly
 
     }
@@ -63,11 +69,12 @@ public class PumaController : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            transition.QTEtrigger();//triggers the into animation, can also put this in a coroutine to have the dust cloud instantiate after the animation plays.
+            pumaGrowl.Play();
+            transition.QTEtrigger(); //triggers the into animation, can also put this in a coroutine to have the dust cloud instantiate after the animation plays.
             Instantiate(dustCloud, gameObject.transform.position, gameObject.transform.rotation);
             playerTarget.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 750, other.gameObject.transform.position.z);
-            gameObject.transform.position = new Vector3(500, 500, 500);
-            pumaGrowl.Play();         
+            gameObject.transform.position = new Vector3(startingPosition.position.x, startingPosition.position.y + 500, startingPosition.position.z);
+            speed = 0;
         }
     }
 

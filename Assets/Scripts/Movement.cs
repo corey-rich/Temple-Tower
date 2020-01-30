@@ -209,7 +209,7 @@ public class Movement : MonoBehaviour
                 if(!isGrounded)
                 {
                     timeInAir += Time.deltaTime;
-                    Debug.Log(timeInAir);
+                    //Debug.Log(timeInAir);
                 }
                 if(timeInAir > maxAirTime )
                 {
@@ -480,7 +480,7 @@ public class Movement : MonoBehaviour
         else if(!facingFront && !notMoving && Input.GetAxis("Horizontal") != 0)
         {
             anim.Play("RunCycle");
-            Debug.Log("Running");
+            //Debug.Log("Running");
         }
     } 
     public void RollAnimation()
