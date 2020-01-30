@@ -231,7 +231,7 @@ public class Movement : MonoBehaviour
                     }
                     if(!isGrounded && (!notMoving || notMoving))
                     {
-                        anim.Play("MilesFart");
+                        anim.Play("MilesFartAirborne");
                         fartParticles.Play();
                     }
                     if(!isGrounded  && !fartJumpCooldown) 
