@@ -18,6 +18,8 @@ TagManager:
   - Highlight
   - puma
   - quakeZone
+  - TriggerParenting
+  - end
   layers:
   - Default
   - TransparentFX
