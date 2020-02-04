@@ -96,6 +96,13 @@ public class Movement : MonoBehaviour
                     whipAnim.Play("MilesWhipPulledBackIdle");
                 }
             }
+            if(notMoving && !isJumping && !isRolling && !justJumped && isGrounded && !isWhipping && !bigDropQuake)//trying to stop sliding
+            {
+                rb.drag = 2f;
+            }else
+            {
+                rb.drag = 0.2f;
+            }
             if (isDead)
             {
                 SceneManager.LoadScene("DeathScene");
@@ -535,6 +542,7 @@ public class Movement : MonoBehaviour
             audioData.PlayOneShot(audioData.clip);
             playedOnce2 = true;
             timeInAir = 0;
+            rb.velocity = new Vector3(0,0,0);
             StartCoroutine(MilesHeroLandingDelay()); 
         } 
     }
