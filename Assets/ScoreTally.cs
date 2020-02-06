@@ -57,7 +57,7 @@ public class ScoreTally : MonoBehaviour
                 case 1:
                     if (currentScoreMid < currentScore)
                     {
-                        currentScoreMid += 2;
+                        currentScoreMid += 5;
                         if (currentScoreMid > currentScore)
                             currentScoreMid = currentScore;
                         ScoreDisplay(currentScoreMid, scoreMid);
@@ -82,7 +82,7 @@ public class ScoreTally : MonoBehaviour
                 case 3:
                     if (overallScore < scoreScubract)
                     {
-                        overallScore += 2;
+                        overallScore += 5;
                         if (overallScore > scoreScubract)
                             overallScore = scoreScubract;
                         ScoreDisplay(overallScore, overallScoretext);

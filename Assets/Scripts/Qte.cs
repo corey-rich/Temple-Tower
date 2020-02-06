@@ -8,13 +8,15 @@ using UnityEngine.AI;
 public class Qte : MonoBehaviour
 {
     public Image qteBar;
-    public GameObject buttonSpawn;
+    public GameObject[] buttonSpawn;
     public GameObject pumaSpawn;
     public int addValue;
+    private GameObject buttonGraphic;
     private string pumaName;
     private bool qteOver;
     private bool isSafe;
     private float startBarHealth = 100;
+    private int buttonPresses;
     private float barHealth;
     private int buttonNumber;
     //private Vector3 pumaCords;
@@ -50,6 +52,14 @@ public class Qte : MonoBehaviour
 
         ButtonMash(buttonNumber);
         StartCoroutine(QteEnd());
+
+        if (buttonPresses == 10)
+        {
+            buttonNumber = Random.Range(0, 3);
+            Destroy(buttonGraphic);
+            buttonGraphic = Instantiate(buttonPrefabs[buttonNumber], buttonSpawn[buttonNumber].transform);
+            buttonPresses = 0;
+        }
 
         if (barHealth < 70)
             qteBar.color = Color.red;
@@ -88,25 +98,41 @@ public class Qte : MonoBehaviour
         {
             case 0:
                 if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("w"))
+                {
                     barHealth += addValue;
+                    buttonPresses++;
+                }
                 break;
             case 1:
                 if (Input.GetButtonDown("Fire5") || Input.GetKeyDown("a"))
+                {
                     barHealth += addValue;
+                    buttonPresses++;
+                }
                 break;
             case 2:
                 if (Input.GetButtonDown("Fire3") || Input.GetKeyDown("s"))
+                {
                     barHealth += addValue;
+                    buttonPresses++;
+                }
                 break;
             case 3:
                 if (Input.GetButtonDown("Fire6") || Input.GetKeyDown("d"))
+                {
                     barHealth += addValue;
+                    buttonPresses++;
+                }
                 break;
             default:
                 break;
         }
     }
 
+    void ChangeButton()
+    {
+
+    }
     IEnumerator QteEnd()
     {
         yield return new WaitForSeconds(8);
@@ -121,6 +147,6 @@ public class Qte : MonoBehaviour
     IEnumerator ButtonSpawnDelay()
     {
         yield return new WaitForSeconds(0.5f);
-        Instantiate(buttonPrefabs[buttonNumber], buttonSpawn.transform);
+        buttonGraphic = Instantiate(buttonPrefabs[buttonNumber], buttonSpawn[buttonNumber].transform);
     }
 }
