@@ -53,7 +53,9 @@ public class Movement : MonoBehaviour
     private int isGreen = 0;
     private int isGold = 0;
     private int isSilver = 0;
-    private int counter = 0;
+    private int counterGreen = 0;
+    private int counterGold = 0;
+    private int counterSilver = 0;
     public bool playedOnce = false;
     public bool playedOnce2 = false;
     public bool bigDropQuake = false;
@@ -293,53 +295,54 @@ public class Movement : MonoBehaviour
         // coins
         if (isGreen > 0)
         {
-            if (counter != greenValue)
+            if (counterGreen != greenValue)
             {
                 score += 1;
                 ScoreDisplay();
                 text.text += score;
-                counter++;
+                counterGreen++;
 
-                if (counter == greenValue)
+                if (counterGreen == greenValue)
                 {
-                    counter = 0;
+                    counterGreen = 0;
                     isGreen--;
                 }
             }
         }
         if (isGold > 0)
         {
-            if (counter != goldValue)
+            if (counterGold != goldValue)
             {
                 score += 1;
                 ScoreDisplay();
                 text.text += score;
-                counter++;
+                counterGold++;
 
-                if (counter == goldValue)
+                if (counterGold == goldValue)
                 {
-                    counter = 0;
+                    counterGold = 0;
                     isGold--;
                 }
             }
         }
         if (isSilver > 0)
         {
-            if (counter != silverValue)
+            if (counterSilver != silverValue)
             {
                 score += 1;
                 ScoreDisplay();
                 text.text += score;
-                counter++;
+                counterSilver++;
 
-                if (counter == silverValue)
+                if (counterSilver == silverValue)
                 {
-                    counter = 0;
+                    counterSilver = 0;
                     isSilver--;
                 }
             }
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "green")
@@ -390,6 +393,7 @@ public class Movement : MonoBehaviour
                 RunAnimation();
             }   
     }*/
+
     void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Ground" && bigDropQuake)
@@ -409,6 +413,7 @@ public class Movement : MonoBehaviour
         }
     
     }
+
     void OnCollisionExit(Collision collision)
     {
         isGrounded = false;
@@ -417,6 +422,7 @@ public class Movement : MonoBehaviour
             StartCoroutine(FallDelay());            
         }
     }
+
     void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.tag == "Trap" && this.gameObject.tag == "Player")            
@@ -424,6 +430,7 @@ public class Movement : MonoBehaviour
             Instantiate (bloodSpawn, other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position), this.transform.rotation);
         }
     }
+
     public void ScoreDisplay()
     {
         text.text = "0";
@@ -432,6 +439,7 @@ public class Movement : MonoBehaviour
             text.text = text.text + '0';
         }
     }
+
     public void IdleAnimation()
     {
         if(!facingFront)
@@ -448,6 +456,7 @@ public class Movement : MonoBehaviour
             frontMiles.Play("MilesFrontIdle");
         }
     } 
+
     public void RunAnimation()
     {
         if(facingFront && isGrounded && (Input.GetAxis("Horizontal") != 0))
@@ -489,11 +498,13 @@ public class Movement : MonoBehaviour
             anim.Play("RunCycle");
             //Debug.Log("Running");
         }
-    } 
+    }
+    
     public void RollAnimation()
     {
         anim.Play("DodgeRoll"); 
-    }  
+    }
+    
     public void JumpAnimation()
     {
         anim.Play("MilesJump3");
@@ -510,7 +521,8 @@ public class Movement : MonoBehaviour
     public void FallAnimation()
     {
         anim.Play("MilesFallLoop"); 
-    }    
+    }
+    
     public void TurnOffFrontWalk()
     {
         foreach (GameObject sprites in MilesSprites)
@@ -518,19 +530,22 @@ public class Movement : MonoBehaviour
             sprites.GetComponent<SpriteRenderer>().enabled = true; 
         }
         MilesFrontWalk.enabled = false;
-    }     
+    }
+    
     public void PlayerHurtSound()
     {
         audioData.clip=audioClipArray[Random.Range(0,2)];
         //audioData.Stop();
         audioData.PlayOneShot(audioData.clip);
     }
+
     public void PlayerJumpSound()
     {
         audioData.clip=audioClipArray[Random.Range(3,6)];
         //audioData.Stop();
         audioData.PlayOneShot(audioData.clip);
     }
+
     public void MilesHeroLanding()
     {
         if(!playedOnce2)
@@ -546,23 +561,27 @@ public class Movement : MonoBehaviour
             StartCoroutine(MilesHeroLandingDelay()); 
         } 
     }
+
     IEnumerator MilesHeroLandingDelay()
     {
         yield return new WaitForSeconds(0.5f);
         bigDropQuake = false;
         playedOnce2 = false;
     }
+
     IEnumerator RollBack()
     {
         yield return new WaitForSeconds(rollLength);
         frontMiles.speed = 1.0f;
         rollStop = true;
     }
+
     IEnumerator JumpReset()
     {
         yield return new WaitForSeconds(jumpWaitTime);
         justJumped = false;
     }
+
     IEnumerator FallDelay()
     {
         yield return new WaitForSeconds(fallDelayTime);
