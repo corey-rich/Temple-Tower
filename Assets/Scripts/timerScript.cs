@@ -5,10 +5,11 @@
  
  public class timerScript : MonoBehaviour 
  {
-    public float startTime;
-    TextMeshProUGUI textMesh;
+     public float startTime;
+     TextMeshProUGUI textMesh;
      
      public static float timer = 0;
+     public float guiTime; 
      
      void Start()
      {
@@ -19,7 +20,7 @@
      // Update is called once per frame
      void Update () {
          
-         float guiTime = timer + (Time.time + startTime);
+         guiTime = timer + (Time.time + startTime);
          if (guiTime > 0)
          {
              int minutes = (int)(guiTime / 60);

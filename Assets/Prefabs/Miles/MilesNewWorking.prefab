@@ -1502,6 +1502,7 @@ GameObject:
   - component: {fileID: 3649637254303298765}
   - component: {fileID: 3649637254303298753}
   - component: {fileID: 2807127493187781965}
+  - component: {fileID: 4942236549308470536}
   - component: {fileID: 1633993603}
   m_Layer: 9
   m_Name: MilesNewWorking
@@ -1611,6 +1612,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bddb403199d4fb74f85d684071824e14, type: 3}
   - {fileID: 8300000, guid: 5835749d64e8d50479ea5b3e1ce98b35, type: 3}
   - {fileID: 8300000, guid: 134b6afa815b52a418d12ff568a5fdcf, type: 3}
+  shake: {fileID: 0}
   distanceGround: 0
   speed: 3.7
   rollSpeed: 2.9
@@ -1618,6 +1620,9 @@ MonoBehaviour:
   jumpWaitTime: 0.3
   fallDelayTime: 1.15
   jumpForce: 4.7
+  timeInAir: 0
+  maxAirTime: 0
+  pumaName: 
   isJumping: 0
   isDead: 0
   isPaused: 0
@@ -1643,9 +1648,15 @@ MonoBehaviour:
   whip: {fileID: 7652319217019336249}
   MilesFrontWalk: {fileID: 8282198064768390218}
   score: 0
+  facingFront: 0
   scoreText: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  cameraShake: {fileID: 0}
+  fartParticles: {fileID: 0}
   playedOnce: 0
   playedOnce2: 0
+  bigDropQuake: 0
+  fartJumpCooldown: 0
 --- !u!114 &2807127493187781965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,9 +1671,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 2977577391381682280}
   spawn: {fileID: 7951468285414143397, guid: 17226ea7670ecfc4294c3e77a029fbc4, type: 3}
-  counter: 0
   waitTime: 20
   isWhip: 0
+--- !u!114 &4942236549308470536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448722513834930301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6672addd9dfaacd4fa675ca208ba52f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackOut: {fileID: 0}
 --- !u!82 &1633993603
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3070,10 +3093,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6785743340015459050}
     m_Modifications:
-    - target: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_Name
-      value: BlobShadowProjector
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3129,6 +3148,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_LocalScale.z
       value: 6.2500033
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
+      propertyPath: m_Name
+      value: BlobShadowProjector
       objectReference: {fileID: 0}
     - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_IgnoreLayers.m_Bits
@@ -3233,15 +3256,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae20e02c6b12aa4d95c75a6f2b6a778, type: 3}
---- !u!4 &6828088883302109135 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2117865248790510661, guid: aae20e02c6b12aa4d95c75a6f2b6a778,
-    type: 3}
-  m_PrefabInstance: {fileID: 4874607357785109386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2576405010950085216 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6946572789146855914, guid: aae20e02c6b12aa4d95c75a6f2b6a778,
+    type: 3}
+  m_PrefabInstance: {fileID: 4874607357785109386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6828088883302109135 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2117865248790510661, guid: aae20e02c6b12aa4d95c75a6f2b6a778,
     type: 3}
   m_PrefabInstance: {fileID: 4874607357785109386}
   m_PrefabAsset: {fileID: 0}
