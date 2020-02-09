@@ -6,6 +6,7 @@ public class triggerBridge : MonoBehaviour
 {
     private Animator anim;
     private int playedOnce = 0;
+    public Transform cameraReset;
     public ParticleSystem rubbleSmoke;
     private AudioSource audioFile;
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class triggerBridge : MonoBehaviour
     {
         if(other.gameObject.tag == "Player" && playedOnce == 0)
         {
+            cameraReset.localPosition = new Vector3(0,0,0);
             audioFile.Play();
             anim.Play("BridgePlatform");
             playedOnce += 1;

@@ -18,6 +18,9 @@ TagManager:
   - Highlight
   - puma
   - quakeZone
+  - TriggerParenting
+  - Stairs
+  - Treasure
   layers:
   - Default
   - TransparentFX
@@ -33,8 +36,8 @@ TagManager:
   - Trap
   - Player Shadow
   - Player Eye
-  - 
-  - 
+  - Left Side Illumination
+  - General Illumination
   - 
   - 
   - 

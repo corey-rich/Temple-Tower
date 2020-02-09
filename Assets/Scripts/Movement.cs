@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
 {
     private Animator anim;
     public Animator frontMiles;
+    public Animator backMiles;
     public Animator whipAnim; //this is connected to the whip which has the animation WhipExtend on it to play the whip animation
     private AudioSource audioData;
     public AudioClip[] audioClipArray;
@@ -38,6 +39,7 @@ public class Movement : MonoBehaviour
     public GameObject[] MilesSprites;
     public SpriteRenderer whip;
     public SpriteRenderer MilesFrontWalk;
+    public SpriteRenderer MilesBackWalk;
     private Rigidbody rb;
     private bool rollStop = false;
     public int score;
@@ -82,6 +84,7 @@ public class Movement : MonoBehaviour
                 audioData.Stop(); //stops the whip sound from playing when miles is locked on the floor changing mechanism, but hasnt chosen a direction
                 whipAnim.Play("MilesWhipPulledBackIdleStop");
                 MilesFrontWalk.enabled = false;
+                MilesBackWalk.enabled = false;
                 foreach (GameObject sprites in MilesSprites)
                     {
                         sprites.GetComponent<SpriteRenderer>().enabled = false;
@@ -114,7 +117,8 @@ public class Movement : MonoBehaviour
                     sprites.GetComponent<SpriteRenderer>().enabled = false;
                 }
                 MilesFrontWalk.enabled = false;
-                whipAnim.Play("MilesWhippingFrameByFrame"); //whip estending animation
+                MilesBackWalk.enabled = false;
+                whipAnim.Play("MilesWhippingFrameByFrame"); //whip extending animation
                 if (!isLocked && playedOnce == false)
                 {
                     audioData.clip=audioClipArray[11];
@@ -137,8 +141,15 @@ public class Movement : MonoBehaviour
                 if (MilesFrontWalk && !facingFront)
                 {
                     TurnOffFrontWalk();
-                }    
-                transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
+                } 
+                
+                if(!facingFront)
+                {
+                    transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);
+                }else
+                {
+                    transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, -1 * speed * Time.deltaTime);
+                }
 
                 if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
                 {
@@ -189,6 +200,8 @@ public class Movement : MonoBehaviour
                             sprites.GetComponent<SpriteRenderer>().enabled = false;
                         }
                         MilesFrontWalk.enabled = true;
+                        MilesBackWalk.enabled = false;
+
                         if (!justJumped && isGrounded)
                         {
                             frontMiles.Play("MilesFrontRunCycle");
@@ -205,10 +218,18 @@ public class Movement : MonoBehaviour
                         {
                             sprites.GetComponent<SpriteRenderer>().enabled = false;
                         }
-                        MilesFrontWalk.enabled = true;
+                        if(facingFront)//these if statments make sure the player cant face away from the camera when in auto run "Boulder" mode
+                        {
+                            frontMiles.Play("MilesFrontRunCycle");
+                        }
+                        else if(!facingFront)
+                        {
+                            MilesBackWalk.enabled = true;
+                            MilesFrontWalk.enabled = false;
+                        }
                         if (!justJumped && isGrounded)
                         {
-                            frontMiles.Play("MilesBackRunCycle");
+                            backMiles.Play("MilesBackRunCycle");
                         }
                         isBackTurned = true;
                     }
@@ -250,9 +271,9 @@ public class Movement : MonoBehaviour
                           
                 }
                 // roll
-                if (isGrounded && !notMoving && !isRolling && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
+                if (isGrounded && !isRolling && (Input.GetKeyDown("left shift") || Input.GetButtonDown("Fire3")))
                 {
-                    if(!facingFront)
+                    if(!facingFront && !notMoving)
                     {
                         speed += rollSpeed;
                         isRolling = true;
@@ -264,6 +285,7 @@ public class Movement : MonoBehaviour
                         speed += rollSpeed;
                         isRolling = true;
                         frontMiles.speed = 1.8f;
+                        frontMiles.Play("MilesFrontRunCycle");
                         StartCoroutine(RollBack());
                     }
                 }
@@ -445,7 +467,7 @@ public class Movement : MonoBehaviour
                    sprites.GetComponent<SpriteRenderer>().enabled = false; //<---------Change to false to enable Forward Running Only
                 }
             MilesFrontWalk.enabled = true;
-            frontMiles.Play("MilesFrontIdle");
+            frontMiles.Play("MilesFrontRunCycle"); //change to idle to fix
         }
     } 
     public void RunAnimation()
@@ -464,7 +486,7 @@ public class Movement : MonoBehaviour
             }
             else if(isBackTurned)
             {
-                frontMiles.Play("MilesBackRunCycle");
+                backMiles.Play("MilesBackRunCycle");
                 anim.Play("RunCycleFrontFacing");
             }
         }       
@@ -477,10 +499,14 @@ public class Movement : MonoBehaviour
         {
             if(!isBackTurned)
             {
+                MilesBackWalk.enabled = false;
+                MilesFrontWalk.enabled = true;
                 frontMiles.Play("MilesFrontJump");
             }
             else 
             {
+                MilesFrontWalk.enabled = false;
+                MilesBackWalk.enabled = true;
                frontMiles.Play("MilesBackJump");
             }
         }
@@ -496,15 +522,24 @@ public class Movement : MonoBehaviour
     }  
     public void JumpAnimation()
     {
+        //MilesBackWalk.enabled = false;
+        //MilesFrontWalk.enabled = false;
         anim.Play("MilesJump3");
+        backMiles.Play("MilesBackJump");
+        frontMiles.Play("MilesFrontJump");
         frontMiles.speed = 1.0f; //fixes animation desync when rolling and in the front facing camera mode
         if (isBackTurned)
         {
-            frontMiles.Play("MilesBackJump");
+            //MilesFrontWalk.enabled = false;
+            //MilesBackWalk.enabled = true;
+
         }
         else
         {
-            frontMiles.Play("MilesFrontJump");
+           //MilesBackWalk.enabled = false;
+            //MilesFrontWalk.enabled = true;
+            //backMiles.Play("MilesBackJump");        
+            //frontMiles.Play("MilesFrontJump");
         } 
     }    
     public void FallAnimation()
@@ -518,6 +553,8 @@ public class Movement : MonoBehaviour
             sprites.GetComponent<SpriteRenderer>().enabled = true; 
         }
         MilesFrontWalk.enabled = false;
+        MilesBackWalk.enabled = false;
+    
     }     
     public void PlayerHurtSound()
     {
@@ -583,7 +620,8 @@ public class Movement : MonoBehaviour
                     sprites.GetComponent<SpriteRenderer>().enabled = true;
                 }    
                 //MilesFrontWalk.Play("MilesFrontIdle");
-                MilesFrontWalk.enabled = false;     
+                MilesFrontWalk.enabled = false;
+                MilesBackWalk.enabled = false;     
                 anim.Play("MilesIdle");            
             }
         isWhipping = false;
