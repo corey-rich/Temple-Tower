@@ -6,10 +6,12 @@ public class musicManager : MonoBehaviour
 {
     private AudioSource audioData;
     public AudioClip[] audioClipArray;
+    private AudioSource[] allAudioSources;
     // Start is called before the first frame update
     void Start()
     {
         audioData = GetComponent<AudioSource>();
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
     }
 
     // Update is called once per frame
@@ -18,12 +20,15 @@ public class musicManager : MonoBehaviour
  
     }
    public void levelComplete()
-   {
+   {        
+        foreach( AudioSource audioS in allAudioSources) 
+        {
+            audioS.Stop();
+        }
         audioData.Stop();
         audioData.clip=audioClipArray[0];
         audioData.PlayOneShot(audioData.clip); 
         StartCoroutine(endSongSequence());
-
    }
    IEnumerator endSongSequence()
    {

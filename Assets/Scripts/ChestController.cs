@@ -5,9 +5,9 @@ using TMPro;
 
 public class ChestController : MonoBehaviour
 {
-    private Animator anim;
+    private Animator animChest;
     private bool hasPlayed;
-
+    public treasureCounter treasures;
     public Movement player;
     public TextMeshProUGUI scoreText;
     private int counter = 0;
@@ -17,7 +17,7 @@ public class ChestController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();        
+        animChest = GetComponent<Animator>();        
     }
 
     // Update is called once per frame
@@ -45,7 +45,8 @@ public class ChestController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && hasPlayed == false)
         {
-            anim.Play("ChestOpening");
+            animChest.Play("ChestOpening");
+            treasures.collectTreasure();
             isOpen = true;
             hasPlayed = true;
 

@@ -5103,6 +5103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80974ed42e0b0d64ebccc46b68ba4ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treasure: {fileID: 0}
   player: {fileID: 0}
   scoreText: {fileID: 0}
 --- !u!1 &3120845312352431681

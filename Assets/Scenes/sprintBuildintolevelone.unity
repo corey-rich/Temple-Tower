@@ -14653,6 +14653,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 310874238006658409, guid: 622531c98b012ea469d1b00e1b44ff20,
+        type: 3}
+      propertyPath: treasure
+      value: 
+      objectReference: {fileID: 1068114647}
+    - target: {fileID: 310874238006658409, guid: 622531c98b012ea469d1b00e1b44ff20,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3649637254525781217}
+    - target: {fileID: 310874238006658409, guid: 622531c98b012ea469d1b00e1b44ff20,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 8860107810016027497}
+    - target: {fileID: 310874238006658409, guid: 622531c98b012ea469d1b00e1b44ff20,
+        type: 3}
+      propertyPath: treasures
+      value: 
+      objectReference: {fileID: 1068114647}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 622531c98b012ea469d1b00e1b44ff20, type: 3}
 --- !u!4 &1563729879 stripped
@@ -15403,7 +15423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1620023158
 BoxCollider:
   m_ObjectHideFlags: 0
