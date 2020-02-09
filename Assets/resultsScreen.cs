@@ -6,20 +6,23 @@ public class resultsScreen : MonoBehaviour
 {
     public transitionController blackOut;
     public Canvas resultsObject;
+    public musicManager musicMan;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "end")
         {
             StartCoroutine(blackOut.toggleFadein());
+            //blackOut.triggerMask();
             StartCoroutine(Pause());
         }
     }
 
     IEnumerator Pause()
     {
-        yield return new WaitForSeconds(1);
+        musicMan.levelComplete();
+        yield return new WaitForSeconds(3);
         resultsObject.enabled = true;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 }

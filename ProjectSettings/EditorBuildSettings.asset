@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Leftover From Vertical Slice/VerticalSliceFinalBuild.unity
     guid: f8741b6582e93614bb56b8fa10fb81f3
   - enabled: 1
-    path: Assets/Scenes/sprint1Build2.unity
+    path: Assets/Scenes/Old/sprint1Build2.unity
     guid: fa214692f45cb404eaa6dc8cd2503247
   - enabled: 1
     path: Assets/Scenes/DeathScene.unity
