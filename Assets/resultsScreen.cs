@@ -23,6 +23,6 @@ public class resultsScreen : MonoBehaviour
         musicMan.levelComplete();
         yield return new WaitForSeconds(3);
         resultsObject.enabled = true;
-        //Time.timeScale = 0;
+        //Time.timeScale = 0; moved to musicManager so it can change songs while the tally screen loads
     }
 }
