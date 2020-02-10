@@ -11,10 +11,4 @@ public Animator anim;
         anim = GetComponent<Animator>();
         anim.Play("MilesDeathKneel");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

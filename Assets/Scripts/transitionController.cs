@@ -19,17 +19,20 @@ public class transitionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(!startsAlreadyFadedIn && !fadedIn)
+        if (!startsAlreadyFadedIn && !fadedIn)
         {
             transitionAnim.Play("FadeIn");
             fadedIn = true;
-        }       
-        transitionMask = transitionMaskGameObject.GetComponent<ScreenTransitionImageEffect>(); 
-        if(transitionMask.maskValue <= 0.000f)
+        }
+        
+        transitionMask = transitionMaskGameObject.GetComponent<ScreenTransitionImageEffect>();
+
+        if (transitionMask.maskValue <= 0.000f)
         {
             goingUp = true;
             goingDown = false;
-        }else if(transitionMask.maskValue >= 1.000f)
+        }
+        else if (transitionMask.maskValue >= 1.000f)
         {
             goingDown = true;
             goingUp = false;
@@ -39,32 +42,32 @@ public class transitionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             StartCoroutine(toggleFadein());
         }  
-        if(Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             triggerMask();
         }  
         //newValue = transitionMask.maskValue + 0.01f;
         //transitionMask.maskValue = newValue;
-       if(isFiring)
-        {
-                if(goingUp)
+       if (isFiring)
+       {
+                if (goingUp)
                 {
                     //needs to go up to 1f
                     newValue = transitionMask.maskValue + 0.0100f;
                     //counter++;
                 }
-                else if(goingDown)
+                else if (goingDown)
                 {
                     //needs to go down to 0f
                     newValue = transitionMask.maskValue - 0.0100f;
                     //counter++;
                 }
             transitionMask.maskValue = newValue;
-            if(transitionMask.maskValue <= 0.000f)
+            if (transitionMask.maskValue <= 0.000f)
             {
                 //transitionMask.maskValue = 0.000f;
                 goingUp = true;
@@ -80,35 +83,38 @@ public class transitionController : MonoBehaviour
                 isFiring = false;
                 //counter = 0;
             }
-        }
+       }
     }   
     public void QTEtrigger()
     {
         //transitionAnim.SetTrigger("QTEtrigger");
         transitionAnim.Play("QTEIntro");
     }
+
     public void OutroTrigger()
     {
         //transitionAnim.SetTrigger("QTEtrigger");
         //transitionAnim.Play("QTEIntro");
     }
+
     public IEnumerator toggleFadein()
     {
-        if(startsAlreadyFadedIn || fadedIn)
+        if (startsAlreadyFadedIn || fadedIn)
         {
             transitionAnim.Play("FadeOut"); 
             fadedIn = false;
             startsAlreadyFadedIn = false;
         }
-        else if(!fadedIn)
+        else if (!fadedIn)
         {
             transitionAnim.Play("FadeIn");
             fadedIn = true;
         }
 
-     yield return new WaitForSeconds(1.5f);
-     //SceneManager.LoadScene(sceneName);
+        yield return new WaitForSeconds(1.5f);
+        //SceneManager.LoadScene(sceneName);
     }
+
     public void triggerMask()
     {
         isFiring = true;

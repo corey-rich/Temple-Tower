@@ -23,7 +23,7 @@ public class playerAttach : MonoBehaviour
       {
         player.transform.parent = this.gameObject.transform;
         //gameObject.transform.parent = player.transform;
-        Debug.Log("Player Attached");
+        //Debug.Log("Player Attached");
       }
   }
   void OnTriggerExit ()

@@ -32,9 +32,9 @@ public class SpikeMover : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-        moveSpikes(spikes, step, twoStep, firstPosition, endPosition, isUp); 
+            moveSpikes(spikes, step, twoStep, firstPosition, endPosition, isUp); 
         }       
     }
 

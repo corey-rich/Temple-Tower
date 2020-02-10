@@ -23,11 +23,13 @@ public class treasureCounter : MonoBehaviour
         //Debug.Log(objects.Length);
         treasureTextMesh.text = treasureCollectedAmount.ToString() + "/" + objects.Length.ToString();
     }
+
     public void collectTreasure()
     {
         anim.Play("TreasureHudSlideIn");
         StartCoroutine(treasureDelay());
     }
+
     IEnumerator treasureDelay()
     {
         yield return new WaitForSeconds(1.8f);

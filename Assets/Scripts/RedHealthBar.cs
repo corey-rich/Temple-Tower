@@ -20,47 +20,53 @@ public class RedHealthBar : MonoBehaviour
         RedHealth = GetComponent<Image>();
     }
 
-    void Update()
+    public void AdjustCurrentHealth(int adj)
     {
-
-    }
-    public void AdjustCurrentHealth(int adj){
     
         curHealth -= adj;
     
-            if(curHealth <= 0)
-            {
+        if (curHealth <= 0)
+        {
             curHealth = 0;
             movement.isDead = true;
-            }
-            if(curHealth > maxHealth)
+        }
+
+        if (curHealth > maxHealth)
             curHealth = maxHealth;
     
-            if(maxHealth <100)
+        if (maxHealth <100)
             maxHealth = 100;
 
-            RedHealth.fillAmount = (curHealth) / 100;
+        RedHealth.fillAmount = (curHealth) / 100;
 
-            Debug.Log(RedHealth.fillAmount);
+        //Debug.Log(RedHealth.fillAmount);
 
-        if ((curHealth <= 65) && (curHealth >= 34)){
-                foreach (GameObject image in MilesHeads)
-                {
+        if ((curHealth <= 65) && (curHealth >= 34))
+        {
+            foreach (GameObject image in MilesHeads)
+            {
                 image.SetActive(false);
-                }
-               MilesHeads[1].SetActive(true);
-        }else if (curHealth <= 33){
-                foreach (GameObject image in MilesHeads)
-                {
+            }
+
+            MilesHeads[1].SetActive(true);
+        }
+        else if (curHealth <= 33)
+        {
+            foreach (GameObject image in MilesHeads)
+            {
                 image.SetActive(false);
-                }
-               MilesHeads[2].SetActive(true);
-        }else if (curHealth >= 66){
-                foreach (GameObject image in MilesHeads)
-                {
+            }
+
+            MilesHeads[2].SetActive(true);
+        }
+        else if (curHealth >= 66)
+        {
+            foreach (GameObject image in MilesHeads)
+            {
                 image.SetActive(false);
-                }
-               MilesHeads[0].SetActive(true);             
+            }
+
+            MilesHeads[0].SetActive(true);             
         }
     }
 }

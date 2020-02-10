@@ -16,20 +16,16 @@ public class triggerBridge : MonoBehaviour
         audioFile = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-   private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Player" && playedOnce == 0)
+        if (other.gameObject.tag == "Player" && playedOnce == 0)
         {
             cameraReset.localPosition = new Vector3(0,0,0);
             audioFile.Play();
             anim.Play("BridgePlatform");
             playedOnce += 1;
-            Debug.Log("Played");
+            //Debug.Log("Played");
             rubbleSmoke.Play();
         }
     }

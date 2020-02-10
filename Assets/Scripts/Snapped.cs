@@ -19,7 +19,6 @@ public class Snapped : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-
         if (other.gameObject.tag == "SnapTrigger")
         {
             // moves segment

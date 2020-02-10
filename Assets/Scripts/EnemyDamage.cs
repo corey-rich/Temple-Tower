@@ -5,15 +5,11 @@ using UnityEngine.UI;
 
 public class EnemyDamage : MonoBehaviour
 {
-public int damage;
-public float hurtDelayTime = 0.05f;
-public RedHealthBar healthBar;
-public Movement milesScript;
+    public int damage;
+    public float hurtDelayTime = 0.05f;
+    public RedHealthBar healthBar;
+    public Movement milesScript;
 
-    void Start()
-    {
-
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -24,6 +20,7 @@ public Movement milesScript;
             Debug.Log("This is a " + this.gameObject.tag);
         }
     }
+
     IEnumerator HurtDelay()
     {
     yield return new WaitForSeconds(hurtDelayTime);

@@ -11,21 +11,28 @@ public class ScrollMaker : MonoBehaviour
 
     void Start()
     {
-        rend = GetComponent<Renderer> ();
+        rend = GetComponent<Renderer>();
     }
 
     void Update()
     {
         float offset = Time.time * scrollSpeed;
 
-        if (switchDirection == true && goSideways == false){
+        if (switchDirection == true && goSideways == false)
+        {
             rend.material.mainTextureOffset = new Vector2(0f, -offset);    
-        } else if (switchDirection == false && goSideways == false){
+        }
+        else if (switchDirection == false && goSideways == false)
+        {
             rend.material.mainTextureOffset = new Vector2(0f, offset);  
-        } else if (switchDirection == true && goSideways == true){
+        }
+        else if (switchDirection == true && goSideways == true)
+        {
             rend.material.mainTextureOffset = new Vector2(-offset, 0f);  
-        }else if (goSideways == true && switchDirection == false){
+        }
+        else if (goSideways == true && switchDirection == false)
+        {
             rend.material.mainTextureOffset = new Vector2(offset, 0f);  
-        }  
+        }
     }
 }

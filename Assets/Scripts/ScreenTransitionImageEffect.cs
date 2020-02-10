@@ -37,8 +37,6 @@ public class ScreenTransitionImageEffect : MonoBehaviour
 
     void Start()
     {
-
-
         shader = Shader.Find("Hidden/ScreenTransitionImageEffect");
 
         // Disable the image effect if the shader can't

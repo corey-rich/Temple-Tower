@@ -7,22 +7,12 @@ public class stairFixer : MonoBehaviour
     public PhysicMaterial originalPhys;
     public PhysicMaterial stairPhys;
     public Collider player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerStay(Collider other) 
     {
         if (other.gameObject.tag == "Player")            
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             player.material = stairPhys;
         }
     }

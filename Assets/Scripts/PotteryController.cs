@@ -17,28 +17,23 @@ public class PotteryController : MonoBehaviour
     public int potteryType; 
     public int maxCoins = 5;
     private int coinCount = 0;
+
     // Start is called before the first frame update
     void Awake()
     {
-    audioData = GetComponent<AudioSource>();
+        audioData = GetComponent<AudioSource>();
     }
     void Start()
     {
-    anim = GetComponent<Animator>();   
-    audioData.clip=audioClipArray[Random.Range(0,audioClipArray.Length)];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        anim = GetComponent<Animator>();   
+        audioData.clip=audioClipArray[Random.Range(0,audioClipArray.Length)];
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && isReady == true)
         {
-        audioData.PlayOneShot(audioData.clip); 
+            audioData.PlayOneShot(audioData.clip); 
         switch (potteryType)
         {
         case 4:
@@ -66,6 +61,7 @@ public class PotteryController : MonoBehaviour
             StartCoroutine(PotterySoundDelay());
         }
     }
+
     IEnumerator PotterySoundDelay()
     {
         yield return new WaitForSeconds(potteryDelayTime);

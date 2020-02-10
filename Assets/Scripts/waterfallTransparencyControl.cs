@@ -14,30 +14,24 @@ public class waterfallTransparencyControl : MonoBehaviour
         anim = GetComponent<Animator>(); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Player" && reload == true)
         {
-        Debug.Log("hit!");
-        //anim.Play("waterfallTransparency"); 
-        waterfall.SetActive(false);
-        reload = false;
+            //Debug.Log("hit!");
+            //anim.Play("waterfallTransparency"); 
+            waterfall.SetActive(false);
+            reload = false;
         }       
     }
 
-private void OnTriggerExit(Collider other)
-{
-        if(other.gameObject.tag == "Player" && reload == true)
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && reload == true)
         {
-        //anim.Play("waterfallReturnOpaque"); 
-        waterfall.SetActive(true);
-        reload = true;
+            //anim.Play("waterfallReturnOpaque"); 
+            waterfall.SetActive(true);
+            reload = true;
         }         
-}
-
+    }
 }

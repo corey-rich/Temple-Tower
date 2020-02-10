@@ -15,16 +15,11 @@ public class StabbingSpikeTrapGroupController : MonoBehaviour
         audioData = GetComponent<AudioSource>();        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && isReady == true)
         {
-        //audioData.PlayOneShot(audioData.clip); 
+            //audioData.PlayOneShot(audioData.clip); 
             anim.Play("StabbingSpikeTrapGroup_ShootUp");
             isReady = false;
             StartCoroutine(StabbingSpikeTrapGroupDeployDelay());
@@ -33,11 +28,10 @@ public class StabbingSpikeTrapGroupController : MonoBehaviour
             audioData.PlayOneShot(audioData.clip);
         }
     }
+
     IEnumerator StabbingSpikeTrapGroupDeployDelay()
     {
         yield return new WaitForSeconds(deployDelayTime);
         isReady = true;
-        
-
     }
 }
