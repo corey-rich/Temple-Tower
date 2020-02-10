@@ -26,7 +26,7 @@ public class resultsScreen : MonoBehaviour
     IEnumerator Pause()
     {
         musicMan.levelComplete();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         resultsObject.enabled = true;
         //Time.timeScale = 0; moved to musicManager so it can change songs while the tally screen loads
     }
