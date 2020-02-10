@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8507263357721319836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 78.609665, y: 481.96497, z: 23.246704}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3975, y: 2.3975, z: 2.3975}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
+  paused: {fileID: 0}
   pauseMenu: {fileID: 0}
+  firstObject: {fileID: 0}
 --- !u!114 &8507263357721319835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +64,13 @@ MonoBehaviour:
   resumeButton: {fileID: 0}
   quitButton: {fileID: 0}
   backButton: {fileID: 0}
-  audioText: {fileID: 0}
+  gammaSlider: {fileID: 0}
   slider1: {fileID: 0}
   slider2: {fileID: 0}
   slider3: {fileID: 0}
+  gammaText: {fileID: 0}
   masterText: {fileID: 0}
   musicText: {fileID: 0}
   sfxText: {fileID: 0}
+  firstObject: {fileID: 0}
+  secondObject: {fileID: 0}
