@@ -12,7 +12,7 @@ public class MoveSegment : MonoBehaviour
     public GameObject Movement;
     public Movement movementScript;
     public GameObject level;
-    public GameObject Minimap;
+
     public ParticleSystem Rockslide;
 
     public float originalPosition;
@@ -86,14 +86,13 @@ public class MoveSegment : MonoBehaviour
     {
         if (vcam.m_Lens.FieldOfView >= zoomInPosition)
             vcam.m_Lens.FieldOfView += (-zoomInSpeed * Time.deltaTime);
-            Minimap.SetActive(true);
+           
     }
 
     private void ZoomBack()
     { 
         if (vcam.m_Lens.FieldOfView <= originalPosition)
             vcam.m_Lens.FieldOfView += (zoomInSpeed * Time.deltaTime);
-        StartCoroutine(MinimapHideDelay());
     }
 
     private void DistanceCalculator()
@@ -141,9 +140,5 @@ public class MoveSegment : MonoBehaviour
         }
         Rockslide.Play();
     }
-    IEnumerator MinimapHideDelay()
-    {
-        yield return new WaitForSeconds(2);
-        Minimap.SetActive(false);
-    }
+
 }
