@@ -21,7 +21,8 @@ public class triggerSpiderSkitter : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            anim.Play("SpiderSkitterReverse");
+            //anim.Play("SpiderSkitterReverse");
+            anim.SetTrigger("Retreat");
         }
     }
 
@@ -29,7 +30,8 @@ public class triggerSpiderSkitter : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            anim.Play("SpiderSkitter2");
+            //anim.Play("SpiderSkitter2");
+            anim.SetTrigger("Skitter");
         }
     }
 }
