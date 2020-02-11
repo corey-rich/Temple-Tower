@@ -6,12 +6,13 @@ public class waterfallForce : MonoBehaviour
 {
     public bool isForced = false;
     public Collision player;
+    public float rate = 4.5f;
 
     private void Update()
     {
         if (isForced)
         {
-            player.rigidbody.AddForce(-transform.right * 4.5f, ForceMode.VelocityChange);
+            player.rigidbody.AddForce(-transform.right * rate, ForceMode.VelocityChange);
             //player.rigidbody.MovePosition(-transform.right * 1f * Time.fixedDeltaTime);
         }
     }
