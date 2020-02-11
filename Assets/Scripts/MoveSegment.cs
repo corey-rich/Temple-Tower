@@ -12,6 +12,7 @@ public class MoveSegment : MonoBehaviour
     public GameObject Movement;
     public Movement movementScript;
     public GameObject level;
+    public GameObject directionalArrows;
 
     public ParticleSystem Rockslide;
 
@@ -69,7 +70,7 @@ public class MoveSegment : MonoBehaviour
         if (isMoving)
         {
             ZoomBack();
-            SegmentMover();            
+            SegmentMover();          
         }
     }
 
@@ -84,6 +85,7 @@ public class MoveSegment : MonoBehaviour
 
     private void Zoom()
     {
+        directionalArrows.SetActive(true);  
         if (vcam.m_Lens.FieldOfView >= zoomInPosition)
             vcam.m_Lens.FieldOfView += (-zoomInSpeed * Time.deltaTime);
            
@@ -91,6 +93,7 @@ public class MoveSegment : MonoBehaviour
 
     private void ZoomBack()
     { 
+        directionalArrows.SetActive(false);
         if (vcam.m_Lens.FieldOfView <= originalPosition)
             vcam.m_Lens.FieldOfView += (zoomInSpeed * Time.deltaTime);
     }
@@ -124,7 +127,7 @@ public class MoveSegment : MonoBehaviour
 
     public void IdleAnim()
     {
-        anim.Play("FloorMechanismImdle");
+        anim.Play("FloorMechanismIdle");
         Rockslide.Stop();
     }
 
