@@ -21,6 +21,7 @@ TagManager:
   - TriggerParenting
   - Stairs
   - Treasure
+  - end
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - Player Eye
   - Left Side Illumination
   - General Illumination
-  - 
+  - Boulder Illumination
   - 
   - 
   - 

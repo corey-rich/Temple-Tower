@@ -15,7 +15,7 @@ public class RotateTowards : MonoBehaviour
 
     void Update()
     {
-       /* // Determine which direction to rotate towards
+        // Determine which direction to rotate towards
         Vector3 targetDirection = target.position - transform.position;
 
         // The step size is equal to speed times frame time.
@@ -28,7 +28,7 @@ public class RotateTowards : MonoBehaviour
         Debug.DrawRay(transform.position, newDirection, Color.red);
 
         // Calculate a rotation a step closer to the target and applies rotation to this object
-        transform.rotation = Quaternion.LookRotation(newDirection);*/
+        transform.rotation = Quaternion.LookRotation(newDirection);
 
     }
 }
