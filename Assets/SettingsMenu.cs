@@ -22,6 +22,10 @@ public class SettingsMenu : MonoBehaviour
     public GameObject firstObject;
     public GameObject secondObject;
 
+    public AudioSource myFX;
+    public AudioClip clickForwardFx;
+    public AudioClip clickBackwardFx;
+    public AudioClip hoverFx;
 
 
     public void OnSettingsPress()
@@ -61,5 +65,20 @@ public class SettingsMenu : MonoBehaviour
     public void Quit()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void ClickForwardSound()
+    {
+        myFX.PlayOneShot(clickForwardFx);
+    }
+
+    public void ClickBackwardSound()
+    {
+        myFX.PlayOneShot(clickBackwardFx);
+    }
+
+    public void HoverButton()
+    {
+        myFX.PlayOneShot(hoverFx);
     }
 }

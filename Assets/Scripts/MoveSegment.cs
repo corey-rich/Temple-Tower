@@ -15,6 +15,7 @@ public class MoveSegment : MonoBehaviour
     public GameObject directionalArrows;
 
     public ParticleSystem Rockslide;
+    public directionalArrows arrowScript;
 
     public float originalPosition;
     public float zoomInLength;
@@ -36,6 +37,7 @@ public class MoveSegment : MonoBehaviour
         anim = mechanism.GetComponent<Animator>();
         Movement = GameObject.FindGameObjectWithTag("Player");
         movementScript = Movement.GetComponent<Movement>();
+        arrowScript = directionalArrows.GetComponent<directionalArrows>();
         originalPosition = vcam.m_Lens.FieldOfView;
         zoomInPosition = originalPosition - zoomInLength;
         DistanceCalculator();
@@ -49,8 +51,9 @@ public class MoveSegment : MonoBehaviour
         {
             Zoom();
 
-            if (Input.GetKeyDown("a") || Input.GetAxis("Horizontal") < 0)
+            if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire3"))
             {
+                arrowScript.ResetAndDestroy();
                 isMoving = true;
                 isLocked = false;
                 isLeft = true;
@@ -58,8 +61,9 @@ public class MoveSegment : MonoBehaviour
 
                 target.position = new Vector3(level.transform.position.x - distance, level.transform.position.y, level.transform.position.z);
             }
-            else if (Input.GetKeyDown("d") || Input.GetAxis("Horizontal") > 0)
+            else if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Fire5"))
             {
+                arrowScript.ResetAndDestroy();
                 isMoving = true;
                 isLocked = false;
                 isLeft = false;

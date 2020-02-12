@@ -107,7 +107,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -14, y: 1904}
+    uvTransform: {x: -94, y: 1832}
   - name: EyesClosed
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -115,8 +115,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 3850
+      x: 3564
+      y: 4
       width: 471
       height: 231
     spriteID: ff8f175248f16be4bba565140dd431c0
@@ -129,7 +129,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -2619, y: 98}
+    uvTransform: {x: 941, y: -3748}
   - name: Shock
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -137,8 +137,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3320
-      y: 237
+      x: 3564
+      y: 243
       width: 517
       height: 193
     spriteID: b25cc94cc16561a4d935a126c5acecba
@@ -151,7 +151,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 715, y: -3253}
+    uvTransform: {x: 959, y: -3247}
   - name: EyesPain
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -159,8 +159,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3627
-      y: 445
+      x: 1329
+      y: 3991
       width: 362
       height: 91
     spriteID: 75e57b5fb3b26cd47b8dea5349dd9ddf
@@ -173,7 +173,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 936, y: -2872}
+    uvTransform: {x: -1362, y: 674}
   - name: MouthShock
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -181,8 +181,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3997
-      y: 445
+      x: 2481
+      y: 1238
       width: 74
       height: 88
     spriteID: 55b7dac05843f424cadde8cec4659a25
@@ -195,7 +195,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1160, y: -2670}
+    uvTransform: {x: -356, y: -1877}
   - name: MouthGasp
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -203,8 +203,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 483
-      y: 3958
+      x: 2265
+      y: 1172
       width: 224
       height: 58
     spriteID: 604fcca1aa7147443b0cb6a880a13fdc
@@ -217,7 +217,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -2274, y: 985}
+    uvTransform: {x: -492, y: -1801}
   - name: MouthGrit
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -225,8 +225,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3845
-      y: 350
+      x: 2265
+      y: 1090
       width: 240
       height: 74
     spriteID: 46381a03fd81cf044bbe08cafa97af30
@@ -239,7 +239,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1080, y: -2425}
+    uvTransform: {x: -500, y: -1685}
   - name: MouthAwe
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -247,8 +247,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3845
-      y: 237
+      x: 472
+      y: 3850
       width: 217
       height: 105
     spriteID: 0544afd3a8d8cef49a7a830211aeaa38
@@ -261,7 +261,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1062, y: -2316}
+    uvTransform: {x: -2311, y: 1297}
   - name: MouthOpen
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -269,8 +269,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 483
-      y: 3850
+      x: 472
+      y: 3963
       width: 178
       height: 100
     spriteID: c62980908c7bb984f82c1e8034e7ab87
@@ -283,51 +283,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -2302, y: 1519}
-  - name: HandGripped
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1872
-      y: 4
-      width: 516
-      height: 970
-    spriteID: a180649628769e04c8f5d49f8e05f115
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 1869, y: -2677}
-  - name: HandFist
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 722
-      y: 3444
-      width: 486
-      height: 496
-    spriteID: 5a5036b844c86b041b6ffadbf5ff87d0
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 722, y: 187}
+    uvTransform: {x: -2313, y: 1632}
   - name: HandOpen
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -335,8 +291,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1872
-      y: 1785
+      x: 2265
+      y: 567
       width: 311
       height: 515
     spriteID: 92e92362384148d46b7f4f313733cf4a
@@ -349,7 +305,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1774, y: -252}
+    uvTransform: {x: 2089, y: -1443}
   - name: Pupil
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -357,8 +313,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4004
-      y: 4
+      x: 2563
+      y: 1238
       width: 26
       height: 25
     spriteID: 443d3f4850f09114c83d0c8a04673d26
@@ -371,7 +327,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2204, y: -3360}
+    uvTransform: {x: 763, y: -2126}
   - name: EyesOpen
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -379,8 +335,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3320
-      y: 4
+      x: 4
+      y: 3850
       width: 460
       height: 225
     spriteID: feca2b472a8f1494a98a988d6e360e42
@@ -393,7 +349,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1817, y: -3264}
+    uvTransform: {x: -1499, y: 582}
   - name: HatFront
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -401,7 +357,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 2396
+      x: 2640
       y: 4
       width: 916
       height: 433
@@ -415,7 +371,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1135, y: -3509}
+    uvTransform: {x: 1379, y: -3509}
   - name: EyeBrowRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -423,8 +379,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 483
-      y: 4024
+      x: 2265
+      y: 1238
       width: 208
       height: 60
     spriteID: c1cb2d38d0cbb414584239b9499f4a74
@@ -437,7 +393,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -1256, y: 549}
+    uvTransform: {x: 526, y: -2237}
   - name: EyeBrowLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -445,8 +401,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3788
-      y: 4
+      x: 2366
+      y: 1370
       width: 208
       height: 60
     spriteID: 07fbc457865d5bd43bcf7eb89bbbf7e4
@@ -459,7 +415,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2278, y: -3471}
+    uvTransform: {x: 856, y: -2105}
   - name: MouthSmile
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -467,8 +423,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3788
-      y: 72
+      x: 2265
+      y: 1306
       width: 176
       height: 23
     spriteID: 611e39d6fee88624289468656fd0f425
@@ -481,7 +437,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2144, y: -2997}
+    uvTransform: {x: 621, y: -1763}
   - name: Face
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -511,7 +467,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 2396
+      x: 2640
       y: 445
       width: 1223
       height: 219
@@ -525,7 +481,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1266, y: -2995}
+    uvTransform: {x: 1510, y: -2995}
   - name: Pants
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -688,7 +644,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 1872
-      y: 982
+      y: 567
       width: 385
       height: 795
     spriteID: 9a84dc4e40ca14644bac7d02f5a285d4
@@ -701,7 +657,95 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 639, y: 981}
+    uvTransform: {x: 639, y: 566}
+  - name: ArmChunk2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1872
+      y: 4
+      width: 760
+      height: 555
+    spriteID: b88e7147643b4364489e13dbcca39276
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1696, y: -52}
+  - name: ArmChunk
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 722
+      y: 3444
+      width: 535
+      height: 602
+    spriteID: 705195a8f632dc440b96b2da36b1465f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 546, y: 2760}
+  - name: HandClosed
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1872
+      y: 1370
+      width: 486
+      height: 496
+    spriteID: 3b52a87d2a17d974694da872975ecbf1
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1782, y: -1993}
+  - name: HandGripped
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1872
+      y: 1874
+      width: 504
+      height: 453
+    spriteID: 8ec10cfc3a54e0e4a87ecb7e999d68d7
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1820, y: -802}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -730,119 +774,133 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: ff8f175248f16be4bba565140dd431c0
     layerID: 98
-    mosaicPosition: {x: 4, y: 3850}
+    mosaicPosition: {x: 3564, y: 4}
   - name: Shock
     spriteName: Shock
     isGroup: 0
     parentIndex: -1
     spriteID: b25cc94cc16561a4d935a126c5acecba
     layerID: 97
-    mosaicPosition: {x: 3320, y: 237}
+    mosaicPosition: {x: 3564, y: 243}
   - name: EyesPain
     spriteName: EyesPain
     isGroup: 0
     parentIndex: -1
     spriteID: 75e57b5fb3b26cd47b8dea5349dd9ddf
     layerID: 94
-    mosaicPosition: {x: 3627, y: 445}
+    mosaicPosition: {x: 1329, y: 3991}
   - name: MouthShock
     spriteName: MouthShock
     isGroup: 0
     parentIndex: -1
     spriteID: 55b7dac05843f424cadde8cec4659a25
     layerID: 93
-    mosaicPosition: {x: 3997, y: 445}
+    mosaicPosition: {x: 2481, y: 1238}
   - name: MouthGasp
     spriteName: MouthGasp
     isGroup: 0
     parentIndex: -1
     spriteID: 604fcca1aa7147443b0cb6a880a13fdc
     layerID: 92
-    mosaicPosition: {x: 483, y: 3958}
+    mosaicPosition: {x: 2265, y: 1172}
   - name: MouthGrit
     spriteName: MouthGrit
     isGroup: 0
     parentIndex: -1
     spriteID: 46381a03fd81cf044bbe08cafa97af30
     layerID: 89
-    mosaicPosition: {x: 3845, y: 350}
+    mosaicPosition: {x: 2265, y: 1090}
   - name: MouthAwe
     spriteName: MouthAwe
     isGroup: 0
     parentIndex: -1
     spriteID: 0544afd3a8d8cef49a7a830211aeaa38
     layerID: 88
-    mosaicPosition: {x: 3845, y: 237}
+    mosaicPosition: {x: 472, y: 3850}
   - name: MouthOpen
     spriteName: MouthOpen
     isGroup: 0
     parentIndex: -1
     spriteID: c62980908c7bb984f82c1e8034e7ab87
     layerID: 87
-    mosaicPosition: {x: 483, y: 3850}
+    mosaicPosition: {x: 472, y: 3963}
   - name: HandGripped
     spriteName: HandGripped
     isGroup: 0
     parentIndex: -1
-    spriteID: a180649628769e04c8f5d49f8e05f115
-    layerID: 71
-    mosaicPosition: {x: 1872, y: 4}
-  - name: HandFist
-    spriteName: HandFist
+    spriteID: 8ec10cfc3a54e0e4a87ecb7e999d68d7
+    layerID: 112
+    mosaicPosition: {x: 1872, y: 1874}
+  - name: ArmChunk2
+    spriteName: ArmChunk2
     isGroup: 0
     parentIndex: -1
-    spriteID: 5a5036b844c86b041b6ffadbf5ff87d0
-    layerID: 79
+    spriteID: b88e7147643b4364489e13dbcca39276
+    layerID: 110
+    mosaicPosition: {x: 1872, y: 4}
+  - name: ArmChunk
+    spriteName: ArmChunk
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 705195a8f632dc440b96b2da36b1465f
+    layerID: 107
     mosaicPosition: {x: 722, y: 3444}
+  - name: HandClosed
+    spriteName: HandClosed
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3b52a87d2a17d974694da872975ecbf1
+    layerID: 104
+    mosaicPosition: {x: 1872, y: 1370}
   - name: HandOpen
     spriteName: HandOpen
     isGroup: 0
     parentIndex: -1
     spriteID: 92e92362384148d46b7f4f313733cf4a
     layerID: 66
-    mosaicPosition: {x: 1872, y: 1785}
+    mosaicPosition: {x: 2265, y: 567}
   - name: Pupil
     spriteName: Pupil
     isGroup: 0
     parentIndex: -1
     spriteID: 443d3f4850f09114c83d0c8a04673d26
     layerID: 54
-    mosaicPosition: {x: 4004, y: 4}
+    mosaicPosition: {x: 2563, y: 1238}
   - name: EyesOpen
     spriteName: EyesOpen
     isGroup: 0
     parentIndex: -1
     spriteID: feca2b472a8f1494a98a988d6e360e42
     layerID: 51
-    mosaicPosition: {x: 3320, y: 4}
+    mosaicPosition: {x: 4, y: 3850}
   - name: HatFront
     spriteName: HatFront
     isGroup: 0
     parentIndex: -1
     spriteID: a926b5ac31837574da3f727563d60de6
     layerID: 48
-    mosaicPosition: {x: 2396, y: 4}
+    mosaicPosition: {x: 2640, y: 4}
   - name: EyeBrowRight
     spriteName: EyeBrowRight
     isGroup: 0
     parentIndex: -1
     spriteID: c1cb2d38d0cbb414584239b9499f4a74
     layerID: 45
-    mosaicPosition: {x: 483, y: 4024}
+    mosaicPosition: {x: 2265, y: 1238}
   - name: EyeBrowLeft
     spriteName: EyeBrowLeft
     isGroup: 0
     parentIndex: -1
     spriteID: 07fbc457865d5bd43bcf7eb89bbbf7e4
     layerID: 42
-    mosaicPosition: {x: 3788, y: 4}
+    mosaicPosition: {x: 2366, y: 1370}
   - name: MouthSmile
     spriteName: MouthSmile
     isGroup: 0
     parentIndex: -1
     spriteID: 611e39d6fee88624289468656fd0f425
     layerID: 39
-    mosaicPosition: {x: 3788, y: 72}
+    mosaicPosition: {x: 2265, y: 1306}
   - name: Face
     spriteName: Face
     isGroup: 0
@@ -856,7 +914,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 6b9001f8a0389fe47bab15fd7aa66f3f
     layerID: 33
-    mosaicPosition: {x: 2396, y: 445}
+    mosaicPosition: {x: 2640, y: 445}
   - name: Pants
     spriteName: Pants
     isGroup: 0
@@ -912,7 +970,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 9a84dc4e40ca14644bac7d02f5a285d4
     layerID: 3
-    mosaicPosition: {x: 1872, y: 982}
+    mosaicPosition: {x: 1872, y: 567}
   characterData:
     bones: []
     parts: []
