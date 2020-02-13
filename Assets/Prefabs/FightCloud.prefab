@@ -229,6 +229,10 @@ MonoBehaviour:
   - {fileID: 3471621284873425546}
   pumaSpawn: {fileID: 6292488132426228546}
   addValue: 15
+  originalPosition: 0
+  zoomInLength: 10
+  zoomInSpeed: 45
+  zoomInPosition: 0
   playerHealth: {fileID: 0}
   buttonPrefabs:
   - {fileID: 1047514014350945002, guid: 585c93b2bcc61934281633b5cee9fa5f, type: 3}
@@ -243,6 +247,8 @@ MonoBehaviour:
     type: 3}
   mover: {fileID: 0}
   zoomer: {fileID: 0}
+  animHolder: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!95 &7640147632168421378
 Animator:
   serializedVersion: 3

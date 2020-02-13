@@ -155,7 +155,7 @@ public class Qte : MonoBehaviour
     }
     IEnumerator SpeedUpQTE()
     {
-        anim.speed = 2.2f;
+        anim.speed = 1.6f;
         yield return new WaitForSeconds(0.07f);
         anim.speed = 1.0f;
     }
