@@ -74,6 +74,7 @@ public class ScoreTally : MonoBehaviour
                     {
                         currentScore += 1000;
                         ScoreDisplay(1000, bonus);
+                        taskIncrementer++;
                     }
                     else
                     {

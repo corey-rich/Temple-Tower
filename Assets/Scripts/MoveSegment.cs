@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class MoveSegment : MonoBehaviour
 {
+    public GameObject temp;
     public GameObject mechanism;
     private Animator anim;
     public CinemachineVirtualCamera vcam;
@@ -25,6 +26,7 @@ public class MoveSegment : MonoBehaviour
     public float movingSpeed;
     public bool isMoving = false;
     public bool isLeft = false;
+    public bool playedOnce = false;
 
     public Transform leftPoint;
     public Transform rightPoint;
@@ -39,7 +41,7 @@ public class MoveSegment : MonoBehaviour
         movementScript = Movement.GetComponent<Movement>();
         arrowScript = directionalArrows.GetComponent<directionalArrows>();
         originalPosition = vcam.m_Lens.FieldOfView;
-        zoomInPosition = originalPosition - zoomInLength;
+        zoomInPosition = originalPosition + zoomInLength;
         DistanceCalculator();
         target.transform.position = new Vector3 (level.transform.position.x + distance, level.transform.position.y, level.transform.position.z);
     }
@@ -74,7 +76,7 @@ public class MoveSegment : MonoBehaviour
         if (isMoving)
         {
             ZoomBack();
-            SegmentMover();          
+            SegmentMover();   
         }
     }
 
@@ -90,16 +92,16 @@ public class MoveSegment : MonoBehaviour
     public void Zoom()
     {
         directionalArrows.SetActive(true);  
-        if (vcam.m_Lens.FieldOfView >= zoomInPosition)
-            vcam.m_Lens.FieldOfView += (-zoomInSpeed * Time.deltaTime);
+        if (vcam.m_Lens.FieldOfView <= zoomInPosition)
+            vcam.m_Lens.FieldOfView -= (-zoomInSpeed * Time.deltaTime);
            
     }
 
     public void ZoomBack()
     { 
         directionalArrows.SetActive(false);
-        if (vcam.m_Lens.FieldOfView <= originalPosition)
-            vcam.m_Lens.FieldOfView += (zoomInSpeed * Time.deltaTime);
+        if (vcam.m_Lens.FieldOfView >= originalPosition)
+            vcam.m_Lens.FieldOfView -= (zoomInSpeed * Time.deltaTime);
     }
 
     private void DistanceCalculator()
@@ -146,6 +148,15 @@ public class MoveSegment : MonoBehaviour
             anim.Play("FloorMechanismTurnRight");
         }
         Rockslide.Play();
+            if (playedOnce == false)
+            {
+                temp.SetActive(false);
+                playedOnce = true;
+            }       
+            else if (playedOnce == true)
+            {
+                temp.SetActive(true);
+            } 
     }
 
 }

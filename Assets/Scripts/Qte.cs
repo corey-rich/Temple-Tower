@@ -34,6 +34,8 @@ public class Qte : MonoBehaviour
     public GameObject sleepingPuma;
     public GameObject mover;
     public CinemachineVirtualCamera zoomer;
+    public GameObject animHolder;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,8 @@ public class Qte : MonoBehaviour
         barHealth = startBarHealth;
         buttonNumber = Random.Range(0, 3);
         vcam = GameObject.Find("CM vcam1");
+        animHolder = GameObject.Find("Puma Master");
+        anim = animHolder.GetComponent<Animator>();
         zoomer =  vcam.GetComponent<CinemachineVirtualCamera>();        
         pumaName = miles.GetComponent<Movement>().pumaName;
         puma = GameObject.Find(pumaName);
@@ -89,7 +93,8 @@ public class Qte : MonoBehaviour
 
             if (isSafe == true)
             {
-                Destroy(puma);
+                //Destroy(puma);
+                puma.gameObject.transform.position = new Vector3(0, -500,0);
                 Instantiate(sleepingPuma, miles.transform.position, Quaternion.identity);
             }
             else if (isSafe == false)
@@ -112,6 +117,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             case 1:
@@ -119,6 +125,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             case 2:
@@ -126,6 +133,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             case 3:
@@ -133,6 +141,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             default:
@@ -143,6 +152,12 @@ public class Qte : MonoBehaviour
     void ChangeButton()
     {
 
+    }
+    IEnumerator SpeedUpQTE()
+    {
+        anim.speed = 2.2f;
+        yield return new WaitForSeconds(0.07f);
+        anim.speed = 1.0f;
     }
     IEnumerator QteEnd()
     {
