@@ -87,7 +87,7 @@ public class MoveSegment : MonoBehaviour
         }
     }
 
-    private void Zoom()
+    public void Zoom()
     {
         directionalArrows.SetActive(true);  
         if (vcam.m_Lens.FieldOfView >= zoomInPosition)
@@ -95,7 +95,7 @@ public class MoveSegment : MonoBehaviour
            
     }
 
-    private void ZoomBack()
+    public void ZoomBack()
     { 
         directionalArrows.SetActive(false);
         if (vcam.m_Lens.FieldOfView <= originalPosition)
