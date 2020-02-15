@@ -23,6 +23,7 @@ public class SettingsMenu : MonoBehaviour
     public GameObject firstObject;
     public GameObject secondObject;
     public GameObject thirdObject;
+    public GameObject pauseMenu;
 
     public AudioSource myFX;
     public AudioClip clickForwardFx;
@@ -32,7 +33,7 @@ public class SettingsMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis("Vertical") != 0 && pressedOnce == false)
+        /*if (Input.GetAxis("Vertical") != 0 && pressedOnce == false)
         {
             myFX.PlayOneShot(hoverFx);
             pressedOnce = true;
@@ -41,7 +42,7 @@ public class SettingsMenu : MonoBehaviour
             pressedOnce = false;
 
         if (Input.GetButtonDown("Fire1"))
-            myFX.PlayOneShot(clickForwardFx);
+            myFX.PlayOneShot(clickForwardFx);*/
     }
 
 
@@ -83,7 +84,7 @@ public class SettingsMenu : MonoBehaviour
     public void ControlsButton()
     {
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(thirdObject, null);
-        controlsButton.SetActive(true);
+        controlsButton.SetActive(false);
         settingsButton.SetActive(false);
         resumeButton.SetActive(false);
         quitButton.SetActive(false);
