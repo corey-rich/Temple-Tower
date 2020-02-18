@@ -8,24 +8,39 @@ public class boulderSpawner : MonoBehaviour
     public GameObject boulderPrefab;
     public ParticleSystem rockslide;
     public GameObject rubbleObject;
+    public GameObject player;
     public Transform targetPos;
+    public Transform playerPos;
     public AudioSource rockFall;
+    public int manualDistance = 8;
     private bool playedOnce = false;
     private bool triggerBoulder = false;
     // Start is called before the first frame update
     void Start()
     {
         //spawnBoulderRelay(); for boulders that always spawn at the start of the round and continuously. 
+        player = GameObject.Find("MilesNewWorking");
         rockslide = rubbleObject.GetComponent<ParticleSystem>();
+        //spawnBoulderRelay();
     }
 
     // Update is called once per frame
     void Update()
     {
+        float playerDistance = Vector3.Distance(targetPos.transform.position, player.transform.position);
+        if(playerDistance < manualDistance)
+        {
+            if (!playedOnce)
+            {
+                spawnBoulderRelay(); 
+                playedOnce = true;
+            }
+        }
+
         if (triggerBoulder && !playedOnce)
         {
-            spawnBoulderRelay();     
-            playedOnce = true;      
+            //spawnBoulderRelay();     
+            //playedOnce = true;      
         }
     }
     private void OnCollisionStay(Collision other) 
@@ -55,6 +70,6 @@ public class boulderSpawner : MonoBehaviour
         Instantiate (boulderPrefab, targetPos.position, this.transform.rotation);
         yield return new WaitForSeconds(8);
         playedOnce = false;
-        //spawnBoulderRelay(); turn on for automatic generation of boulders.
+        //spawnBoulderRelay(); //turn on for automatic generation of boulders.
     }
 }
