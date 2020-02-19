@@ -148,7 +148,7 @@ public class Movement : MonoBehaviour
                 }
                 else
                 {
-                    transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, -1 * speed * Time.deltaTime);
+                    transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, -1 * (speed + 3) * Time.deltaTime);
                 }
 
                 if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
@@ -317,7 +317,7 @@ public class Movement : MonoBehaviour
                         StartCoroutine(JumpReset());
                     }
                 }
-        }
+            }
 
         }
         // coins
