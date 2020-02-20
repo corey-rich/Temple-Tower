@@ -33,7 +33,6 @@ public class PauseGame : MonoBehaviour
 
     public void UnpauseGame()
     {
-        Debug.Log("hi");
         pauseMenu.SetActive(false);
         Cursor.visible = false;
         gamePaused = false;
