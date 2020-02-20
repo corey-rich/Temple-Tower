@@ -6,8 +6,11 @@ using Cinemachine;
 public class MoveSegment : MonoBehaviour
 {
     public GameObject temp;
-    public GameObject mechanism;
+    private int moveNumber = 3;
     private Animator anim;
+    private GameObject levelManager;
+    private segmentManagerLevelOne scriptManager;
+    public GameObject mechanism;
     public CinemachineVirtualCamera vcam;
     public Transform player;
     public GameObject Movement;
@@ -40,6 +43,8 @@ public class MoveSegment : MonoBehaviour
         Movement = GameObject.FindGameObjectWithTag("Player");
         movementScript = Movement.GetComponent<Movement>();
         arrowScript = directionalArrows.GetComponent<directionalArrows>();
+        levelManager = GameObject.Find("SegmentManager");
+        scriptManager = levelManager.GetComponent<segmentManagerLevelOne>();
         originalPosition = vcam.m_Lens.FieldOfView;
         zoomInPosition = originalPosition + zoomInLength;
         DistanceCalculator();
@@ -142,10 +147,12 @@ public class MoveSegment : MonoBehaviour
         if(isLeft)
         {
             anim.Play("FloorMechanismTurnLeft");
+            moveNumber--;
         }
         if(!isLeft)
         {
             anim.Play("FloorMechanismTurnRight");
+            moveNumber++;
         }
         Rockslide.Play();
             if (playedOnce == false)
@@ -157,6 +164,33 @@ public class MoveSegment : MonoBehaviour
             {
                 temp.SetActive(true);
             } 
+        if (moveNumber > 4)
+        {
+            moveNumber = 0;
+        }
+        if (moveNumber < 0)
+        {
+            moveNumber = 4;
+        }
+        switch (moveNumber)
+            {
+            case 4:
+                
+                break;
+            case 3:
+                scriptManager.disableGears();                
+                break;
+            case 2:
+                scriptManager.enableGears();
+                //turn off waterfall stream
+                break;
+            case 1:
+                scriptManager.disableGears();
+                break;
+            default:
+                
+                break;
+            }
     }
 
 }
