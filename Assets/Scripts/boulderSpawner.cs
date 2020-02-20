@@ -13,6 +13,7 @@ public class boulderSpawner : MonoBehaviour
     public Transform playerPos;
     public AudioSource rockFall;
     public int manualDistance = 8;
+    public bool alwaysOn = false;
     private bool playedOnce = false;
     private bool triggerBoulder = false;
     // Start is called before the first frame update
@@ -21,26 +22,32 @@ public class boulderSpawner : MonoBehaviour
         //spawnBoulderRelay(); for boulders that always spawn at the start of the round and continuously. 
         player = GameObject.Find("MilesNewWorking");
         rockslide = rubbleObject.GetComponent<ParticleSystem>();
-        //spawnBoulderRelay();
+        if (alwaysOn)
+        {
+            spawnBoulderRelay();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        float playerDistance = Vector3.Distance(targetPos.transform.position, player.transform.position);
-        if(playerDistance < manualDistance)
+        if (!alwaysOn)
         {
-            if (!playedOnce)
+            float playerDistance = Vector3.Distance(targetPos.transform.position, player.transform.position);
+            if(playerDistance < manualDistance)
             {
-                spawnBoulderRelay(); 
-                playedOnce = true;
+                if (!playedOnce)
+                {
+                    spawnBoulderRelay(); 
+                    playedOnce = true;
+                }
             }
         }
 
         if (triggerBoulder && !playedOnce)
         {
-            //spawnBoulderRelay();     
-            //playedOnce = true;      
+            spawnBoulderRelay();     
+            playedOnce = true;      
         }
     }
     private void OnCollisionStay(Collision other) 
@@ -70,6 +77,9 @@ public class boulderSpawner : MonoBehaviour
         Instantiate (boulderPrefab, targetPos.position, this.transform.rotation);
         yield return new WaitForSeconds(8);
         playedOnce = false;
-        //spawnBoulderRelay(); //turn on for automatic generation of boulders.
+        if (alwaysOn)
+        {
+            spawnBoulderRelay(); //turn on alwaysOn bool for automatic generation of boulders.
+        }        
     }
 }
