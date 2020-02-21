@@ -10,7 +10,7 @@ public class cleanupDestroyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      player = GameObject.Find("MilesNewWorking");
+        player = GameObject.Find("MilesNewWorking");
      // trans = player.GetComponent<Transform>();  
     }
 
@@ -18,9 +18,8 @@ public class cleanupDestroyScript : MonoBehaviour
     void Update()
     {
         float playerDistance = Vector3.Distance(transform.position, player.transform.position);
-        if(playerDistance > manualDistance)
-        {
-            
+        if (playerDistance > manualDistance)
+        { 
             DestroyGameObject();
         }
         //Debug.Log(playerDistance);

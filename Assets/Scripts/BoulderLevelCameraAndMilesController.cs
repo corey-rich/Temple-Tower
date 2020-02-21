@@ -15,10 +15,10 @@ public class BoulderLevelCameraAndMilesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(Input.GetKeyDown("b"))
-      {
-         SwitchViews();
-      }
+        if(Input.GetKeyDown("b"))
+        {
+            SwitchViews();
+        }
     }
 
 public void SwitchViews()
