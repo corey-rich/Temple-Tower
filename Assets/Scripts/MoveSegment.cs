@@ -5,15 +5,21 @@ using Cinemachine;
 
 public class MoveSegment : MonoBehaviour
 {
-    public GameObject mechanism;
+    public GameObject temp;
+    private int moveNumber = 3;
     private Animator anim;
+    private GameObject levelManager;
+    private segmentManagerLevelOne scriptManager;
+    public GameObject mechanism;
     public CinemachineVirtualCamera vcam;
     public Transform player;
     public GameObject Movement;
     public Movement movementScript;
     public GameObject level;
+    public GameObject directionalArrows;
 
     public ParticleSystem Rockslide;
+    public directionalArrows arrowScript;
 
     public float originalPosition;
     public float zoomInLength;
@@ -23,6 +29,7 @@ public class MoveSegment : MonoBehaviour
     public float movingSpeed;
     public bool isMoving = false;
     public bool isLeft = false;
+    public bool playedOnce = false;
 
     public Transform leftPoint;
     public Transform rightPoint;
@@ -35,8 +42,11 @@ public class MoveSegment : MonoBehaviour
         anim = mechanism.GetComponent<Animator>();
         Movement = GameObject.FindGameObjectWithTag("Player");
         movementScript = Movement.GetComponent<Movement>();
+        arrowScript = directionalArrows.GetComponent<directionalArrows>();
+        levelManager = GameObject.Find("SegmentManager");
+        scriptManager = levelManager.GetComponent<segmentManagerLevelOne>();
         originalPosition = vcam.m_Lens.FieldOfView;
-        zoomInPosition = originalPosition - zoomInLength;
+        zoomInPosition = originalPosition + zoomInLength;
         DistanceCalculator();
         target.transform.position = new Vector3 (level.transform.position.x + distance, level.transform.position.y, level.transform.position.z);
     }
@@ -48,8 +58,9 @@ public class MoveSegment : MonoBehaviour
         {
             Zoom();
 
-            if (Input.GetKeyDown("a") || Input.GetAxis("Horizontal") < 0)
+            if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire3"))
             {
+                arrowScript.ResetAndDestroy();
                 isMoving = true;
                 isLocked = false;
                 isLeft = true;
@@ -57,8 +68,9 @@ public class MoveSegment : MonoBehaviour
 
                 target.position = new Vector3(level.transform.position.x - distance, level.transform.position.y, level.transform.position.z);
             }
-            else if (Input.GetKeyDown("d") || Input.GetAxis("Horizontal") > 0)
+            else if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Fire5"))
             {
+                arrowScript.ResetAndDestroy();
                 isMoving = true;
                 isLocked = false;
                 isLeft = false;
@@ -69,7 +81,7 @@ public class MoveSegment : MonoBehaviour
         if (isMoving)
         {
             ZoomBack();
-            SegmentMover();            
+            SegmentMover();   
         }
     }
 
@@ -82,17 +94,19 @@ public class MoveSegment : MonoBehaviour
         }
     }
 
-    private void Zoom()
+    public void Zoom()
     {
-        if (vcam.m_Lens.FieldOfView >= zoomInPosition)
-            vcam.m_Lens.FieldOfView += (-zoomInSpeed * Time.deltaTime);
+        directionalArrows.SetActive(true);  
+        if (vcam.m_Lens.FieldOfView <= zoomInPosition)
+            vcam.m_Lens.FieldOfView -= (-zoomInSpeed * Time.deltaTime);
            
     }
 
-    private void ZoomBack()
+    public void ZoomBack()
     { 
-        if (vcam.m_Lens.FieldOfView <= originalPosition)
-            vcam.m_Lens.FieldOfView += (zoomInSpeed * Time.deltaTime);
+        directionalArrows.SetActive(false);
+        if (vcam.m_Lens.FieldOfView >= originalPosition)
+            vcam.m_Lens.FieldOfView -= (zoomInSpeed * Time.deltaTime);
     }
 
     private void DistanceCalculator()
@@ -124,7 +138,7 @@ public class MoveSegment : MonoBehaviour
 
     public void IdleAnim()
     {
-        anim.Play("FloorMechanismImdle");
+        anim.Play("FloorMechanismIdle");
         Rockslide.Stop();
     }
 
@@ -133,12 +147,50 @@ public class MoveSegment : MonoBehaviour
         if(isLeft)
         {
             anim.Play("FloorMechanismTurnLeft");
+            moveNumber--;
         }
         if(!isLeft)
         {
             anim.Play("FloorMechanismTurnRight");
+            moveNumber++;
         }
         Rockslide.Play();
+            if (playedOnce == false)
+            {
+                temp.SetActive(false);
+                playedOnce = true;
+            }       
+            else if (playedOnce == true)
+            {
+                temp.SetActive(true);
+            } 
+        if (moveNumber > 4)
+        {
+            moveNumber = 0;
+        }
+        if (moveNumber < 0)
+        {
+            moveNumber = 4;
+        }
+        switch (moveNumber)
+            {
+            case 4:
+                
+                break;
+            case 3:
+                scriptManager.disableGears();                
+                break;
+            case 2:
+                scriptManager.enableGears();
+                //turn off waterfall stream
+                break;
+            case 1:
+                scriptManager.disableGears();
+                break;
+            default:
+                
+                break;
+            }
     }
 
 }

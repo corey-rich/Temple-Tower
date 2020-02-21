@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class treasureCounter : MonoBehaviour
 {
-    private GameObject[] objects;
+    public GameObject[] objects;
     public TextMeshProUGUI treasureTextMesh;
     private Animator anim;
     public int treasureCollectedAmount = 0;

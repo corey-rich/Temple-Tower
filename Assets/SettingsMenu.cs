@@ -8,6 +8,7 @@ public class SettingsMenu : MonoBehaviour
 {
 
     public GameObject settingsButton;
+    public GameObject controlsButton;
     public GameObject resumeButton;
     public GameObject quitButton;
     public GameObject backButton;
@@ -21,12 +22,34 @@ public class SettingsMenu : MonoBehaviour
     public GameObject sfxText;
     public GameObject firstObject;
     public GameObject secondObject;
+    public GameObject thirdObject;
+    public GameObject pauseMenu;
 
+    public AudioSource myFX;
+    public AudioClip clickForwardFx;
+    public AudioClip clickBackwardFx;
+    public AudioClip hoverFx;
+    public bool pressedOnce = false;
+
+    void Update()
+    {
+        /*if (Input.GetAxis("Vertical") != 0 && pressedOnce == false)
+        {
+            myFX.PlayOneShot(hoverFx);
+            pressedOnce = true;
+        }
+        else if (Input.GetAxis("Vertical") == 0)
+            pressedOnce = false;
+
+        if (Input.GetButtonDown("Fire1"))
+            myFX.PlayOneShot(clickForwardFx);*/
+    }
 
 
     public void OnSettingsPress()
     {
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObject, null);
+        controlsButton.SetActive(false);
         settingsButton.SetActive(false);
         resumeButton.SetActive(false);
         quitButton.SetActive(false);
@@ -44,9 +67,27 @@ public class SettingsMenu : MonoBehaviour
     public void BackButton()
     {
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(secondObject, null);
+        controlsButton.SetActive(true);
         settingsButton.SetActive(true);
         resumeButton.SetActive(true);
         quitButton.SetActive(true);
+        backButton.SetActive(false);
+        gammaSlider.SetActive(false);
+        slider1.SetActive(false);
+        slider2.SetActive(false);
+        slider3.SetActive(false);
+        gammaText.SetActive(false);
+        musicText.SetActive(false);
+        masterText.SetActive(false);
+        sfxText.SetActive(false);
+    }
+    public void ControlsButton()
+    {
+        GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(thirdObject, null);
+        controlsButton.SetActive(false);
+        settingsButton.SetActive(false);
+        resumeButton.SetActive(false);
+        quitButton.SetActive(false);
         backButton.SetActive(false);
         gammaSlider.SetActive(false);
         slider1.SetActive(false);
@@ -61,5 +102,20 @@ public class SettingsMenu : MonoBehaviour
     public void Quit()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void ClickForwardSound()
+    {
+        myFX.PlayOneShot(clickForwardFx);
+    }
+
+    public void ClickBackwardSound()
+    {
+        myFX.PlayOneShot(clickBackwardFx);
+    }
+
+    public void HoverButton()
+    {
+        myFX.PlayOneShot(hoverFx);
     }
 }

@@ -95,7 +95,7 @@ public class Movement : MonoBehaviour
                     sprites.GetComponent<SpriteRenderer>().enabled = false;
                 }
 
-                if (Input.GetKeyDown("a") || Input.GetKeyDown("d") || Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
+                if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetButtonDown("Fire3") || Input.GetButtonDown("Fire5"))
                 {
                     audioData.clip=audioClipArray[11]; //plays whip sound after player makes a direction choice
                     audioData.PlayOneShot(audioData.clip);  
@@ -148,7 +148,7 @@ public class Movement : MonoBehaviour
                 }
                 else
                 {
-                    transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, -1 * speed * Time.deltaTime);
+                    transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, -1 * (speed + 3) * Time.deltaTime);
                 }
 
                 if (Input.GetMouseButton(0) || Input.GetButtonDown("Fire4"))
@@ -317,7 +317,7 @@ public class Movement : MonoBehaviour
                         StartCoroutine(JumpReset());
                     }
                 }
-        }
+            }
 
         }
         // coins

@@ -69,11 +69,11 @@ public class PumaController : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            pumaGrowl.Play();
-            transition.QTEtrigger(); //triggers the into animation, can also put this in a coroutine to have the dust cloud instantiate after the animation plays.
             Instantiate(dustCloud, gameObject.transform.position, gameObject.transform.rotation);
             playerTarget.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 750, other.gameObject.transform.position.z);
             gameObject.transform.position = new Vector3(startingPosition.position.x, startingPosition.position.y + 500, startingPosition.position.z);
+            pumaGrowl.Play();
+            transition.QTEtrigger(); //triggers the into animation, can also put this in a coroutine to have the dust cloud instantiate after the animation plays.
             speed = 0;
         }
     }
@@ -100,6 +100,5 @@ public class PumaController : MonoBehaviour {
         else if (puma.GetComponent<SpriteRenderer>().flipX == false)
             puma.GetComponent<SpriteRenderer>().flipX = true;
     }
-
 }
 

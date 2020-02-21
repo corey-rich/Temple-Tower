@@ -11,6 +11,10 @@ public class Qte : MonoBehaviour
     public GameObject[] buttonSpawn;
     public GameObject pumaSpawn;
     public int addValue;
+    public float originalPosition;
+    public float zoomInLength = 10f;
+    public float zoomInSpeed = 45f;
+    public float zoomInPosition;
     private GameObject buttonGraphic;
     private string pumaName;
     private bool qteOver;
@@ -28,6 +32,10 @@ public class Qte : MonoBehaviour
     public GameObject cameraFollow;
     public GameObject puma;
     public GameObject sleepingPuma;
+    public GameObject mover;
+    public CinemachineVirtualCamera zoomer;
+    public GameObject animHolder;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +45,17 @@ public class Qte : MonoBehaviour
         barHealth = startBarHealth;
         buttonNumber = Random.Range(0, 3);
         vcam = GameObject.Find("CM vcam1");
+        animHolder = GameObject.Find("Puma Master");
+        anim = animHolder.GetComponent<Animator>();
+        zoomer =  vcam.GetComponent<CinemachineVirtualCamera>();        
         pumaName = miles.GetComponent<Movement>().pumaName;
         puma = GameObject.Find(pumaName);
         vcam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
         StartCoroutine(ButtonSpawnDelay());
+        originalPosition = zoomer.m_Lens.FieldOfView;
+        zoomInPosition = originalPosition - zoomInLength;
+        Zoom();
+        //zoomer.m_Lens.FieldOfView = 25f;
     }
 
     // Update is called once per frame
@@ -78,7 +93,8 @@ public class Qte : MonoBehaviour
 
             if (isSafe == true)
             {
-                Destroy(puma);
+                //Destroy(puma);
+                puma.gameObject.transform.position = new Vector3(0, -500,0);
                 Instantiate(sleepingPuma, miles.transform.position, Quaternion.identity);
             }
             else if (isSafe == false)
@@ -101,6 +117,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             case 1:
@@ -108,6 +125,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             case 2:
@@ -115,6 +133,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             case 3:
@@ -122,6 +141,7 @@ public class Qte : MonoBehaviour
                 {
                     barHealth += addValue;
                     buttonPresses++;
+                    StartCoroutine(SpeedUpQTE());
                 }
                 break;
             default:
@@ -133,11 +153,18 @@ public class Qte : MonoBehaviour
     {
 
     }
+    IEnumerator SpeedUpQTE()
+    {
+        anim.speed = 1.6f;
+        yield return new WaitForSeconds(0.07f);
+        anim.speed = 1.0f;
+    }
     IEnumerator QteEnd()
     {
         yield return new WaitForSeconds(8);
 
         qteOver = true;
+        ZoomBack();
 
         if (barHealth <= 70)
             isSafe = false;
@@ -148,5 +175,17 @@ public class Qte : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         buttonGraphic = Instantiate(buttonPrefabs[buttonNumber], buttonSpawn[buttonNumber].transform);
+    }
+    public void Zoom()
+    { 
+        if (zoomer.m_Lens.FieldOfView >= zoomInPosition)
+            zoomer.m_Lens.FieldOfView += (-zoomInSpeed * Time.deltaTime);
+           
+    }
+
+    public void ZoomBack()
+    { 
+        if (zoomer.m_Lens.FieldOfView <= originalPosition)
+            zoomer.m_Lens.FieldOfView += (zoomInSpeed * Time.deltaTime);
     }
 }

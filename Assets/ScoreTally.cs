@@ -16,17 +16,21 @@ public class ScoreTally : MonoBehaviour
     public TMP_Text scoreMid;
     private float currentScoreMid = 0;
 
+    public TMP_Text bonus;
+
     public TMP_Text timerText;
     private int currentTimer = 0;
     private float scoreScubract;
 
     public TMP_Text overallScoretext;
     private float overallScore = 0;
+    public treasureCounter treasureCounter;
 
 
     private void Start()
     {
         movement = GameObject.Find("MilesNewWorking").GetComponent<Movement>();
+        treasureCounter = GameObject.Find("Treasure").GetComponent<treasureCounter>();
     }
     // Update is called once per frame
     void Update()
@@ -43,7 +47,7 @@ public class ScoreTally : MonoBehaviour
                 case 0:
                     if (currentScore < movement.score)
                     {
-                        currentScore += 2;
+                        currentScore += 5;
                         if (currentScore >= movement.score)
                             currentScore = movement.score;
                         ScoreDisplay(currentScore, scoreText);
@@ -57,7 +61,7 @@ public class ScoreTally : MonoBehaviour
                 case 1:
                     if (currentScoreMid < currentScore)
                     {
-                        currentScoreMid += 5;
+                        currentScoreMid += 10;
                         if (currentScoreMid > currentScore)
                             currentScoreMid = currentScore;
                         ScoreDisplay(currentScoreMid, scoreMid);
@@ -66,9 +70,22 @@ public class ScoreTally : MonoBehaviour
                         taskIncrementer += 1;
                     break;
                 case 2:
+                    if (treasureCounter.objects.Length == treasureCounter.treasureCollectedAmount)
+                    {
+                        currentScore += 1000;
+                        ScoreDisplay(1000, bonus);
+                        taskIncrementer++;
+                    }
+                    else
+                    {
+                        ScoreDisplay(0, bonus);
+                        taskIncrementer++;
+                    }
+                    break;
+                case 3:
                     if (currentTimer < timerScript.guiTime)
                     {
-                        currentTimer += 2;
+                        currentTimer += 5;
                         if (currentTimer > timerScript.guiTime)
                             currentTimer = Mathf.RoundToInt(timerScript.guiTime) + 1;
                         ScoreDisplay(currentTimer, timerText);
@@ -79,16 +96,15 @@ public class ScoreTally : MonoBehaviour
                         taskIncrementer += 1;
                     }
                     break;
-                case 3:
+                case 4:
                     if (overallScore < scoreScubract)
                     {
-                        overallScore += 5;
+                        overallScore += 15;
                         if (overallScore > scoreScubract)
                             overallScore = scoreScubract;
                         ScoreDisplay(overallScore, overallScoretext);
                     }
                     break;
-
             }
         } 
     }
