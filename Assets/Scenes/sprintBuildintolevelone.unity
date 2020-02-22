@@ -25591,7 +25591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1013377713
 Transform:
   m_ObjectHideFlags: 0
@@ -29407,17 +29407,17 @@ PrefabInstance:
     - target: {fileID: 2667279678916616653, guid: d3c899da2d938a641aaef860f710e186,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52.27273
+      value: -8.29
       objectReference: {fileID: 0}
     - target: {fileID: 2667279678916616653, guid: d3c899da2d938a641aaef860f710e186,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.23
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 2667279678916616653, guid: d3c899da2d938a641aaef860f710e186,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8
+      value: -0.69
       objectReference: {fileID: 0}
     - target: {fileID: 2667279678916616653, guid: d3c899da2d938a641aaef860f710e186,
         type: 3}
@@ -69957,8 +69957,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6500595, y: 9.513979, z: 4.2656913}
-  m_Center: {x: 0, y: 4.7569895, z: 0.03265925}
+  m_Size: {x: 2.8286695, y: 9.513979, z: 2.400424}
+  m_Center: {x: 0.032877922, y: 4.7569895, z: 0.11939425}
 --- !u!54 &3649637254525781231
 Rigidbody:
   m_ObjectHideFlags: 0
