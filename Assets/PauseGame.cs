@@ -23,7 +23,6 @@ public class PauseGame : MonoBehaviour
                 pauseMenu.SetActive(true);
                 GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObject, null);
             }
-
             else
             {
                 UnpauseGame();
