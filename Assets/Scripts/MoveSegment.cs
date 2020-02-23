@@ -23,6 +23,8 @@ public class MoveSegment : MonoBehaviour
 
     public float originalPosition;
     public float zoomInLength;
+    public float zoomOutLength;
+    public float zoomOutPosition;
     public float zoomInSpeed;
     public bool isLocked = false;
     public float zoomInPosition;
@@ -47,6 +49,7 @@ public class MoveSegment : MonoBehaviour
         scriptManager = levelManager.GetComponent<segmentManagerLevelOne>();
         originalPosition = vcam.m_Lens.FieldOfView;
         zoomInPosition = originalPosition + zoomInLength;
+        zoomOutPosition = originalPosition + zoomOutLength;
         DistanceCalculator();
         target.transform.position = new Vector3 (level.transform.position.x + distance, level.transform.position.y, level.transform.position.z);
     }
@@ -108,7 +111,15 @@ public class MoveSegment : MonoBehaviour
         if (vcam.m_Lens.FieldOfView >= originalPosition)
             vcam.m_Lens.FieldOfView -= (zoomInSpeed * Time.deltaTime);
     }
-
+    public void ZoomOut()
+    {
+        if (vcam.m_Lens.FieldOfView <= zoomOutPosition)
+            vcam.m_Lens.FieldOfView -= (-zoomInSpeed * Time.deltaTime);        
+    }
+    public void ZoomIn()
+    {  
+            StartCoroutine(ZoomOutRepeater());
+    }
     private void DistanceCalculator()
     {
         if (Mathf.Abs(leftPoint.position.x) > Mathf.Abs(rightPoint.position.x))
@@ -191,6 +202,19 @@ public class MoveSegment : MonoBehaviour
                 
                 break;
             }
+    }
+    IEnumerator ZoomOutRepeater()
+    {
+        if (vcam.m_Lens.FieldOfView > originalPosition)
+        {
+            vcam.m_Lens.FieldOfView -= (zoomInSpeed * Time.deltaTime);
+        }
+        if (vcam.m_Lens.FieldOfView <= originalPosition)
+        {
+            yield break;
+        } 
+        yield return new WaitForSeconds(0.01f);
+        StartCoroutine(ZoomOutRepeater());
     }
 
 }

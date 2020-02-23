@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3118927142169280842}
   - component: {fileID: 5374557884810381977}
   - component: {fileID: 4827504364257717728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Blood Splatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
