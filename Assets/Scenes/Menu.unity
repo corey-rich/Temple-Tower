@@ -501,8 +501,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 343602691}
-        m_MethodName: ChangeToCredits
+      - m_Target: {fileID: 278867368}
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -890,8 +890,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 343602691}
-        m_MethodName: ChangeToCredits
+      - m_Target: {fileID: 344221582}
+        m_MethodName: RunGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
