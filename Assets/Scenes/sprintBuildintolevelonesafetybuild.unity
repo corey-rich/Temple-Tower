@@ -32577,6 +32577,11 @@ PrefabInstance:
       propertyPath: Priority
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9098830850624476184, guid: 6e3ae211a5a9a9e43b8b3b4e6f797555,
+        type: 3}
+      propertyPath: MinDistance
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e3ae211a5a9a9e43b8b3b4e6f797555, type: 3}
 --- !u!4 &886877575 stripped
@@ -47760,13 +47765,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cfaf14d7e63edaa419bb8b273a23b8fd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.58
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 127
+  Priority: 120
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 25
@@ -88206,7 +88211,7 @@ PrefabInstance:
     - target: {fileID: 1032028311347835963, guid: 131576652e3875b45b6f6b6fe8ec93a7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1032028311347835966, guid: 131576652e3875b45b6f6b6fe8ec93a7,
         type: 3}
