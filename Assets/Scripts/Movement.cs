@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
     public bool isGrounded;
     public bool isBackTurned = false;
     public bool isRolling = false;
+    public bool isHealing = false;
     public bool justJumped = false;
     public bool notMoving = true;
     public bool isWhipping = false;
@@ -62,6 +63,7 @@ public class Movement : MonoBehaviour
     public bool playedOnce2 = false;
     public bool bigDropQuake = false;
     public bool fartJumpCooldown = false;
+
     void Awake()
     {
         audioData = GetComponent<AudioSource>();
@@ -434,9 +436,9 @@ public class Movement : MonoBehaviour
             timeInAir = 0;
             isJumping = false;  
             fartJumpCooldown = false;         
-            if (notMoving == true && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
+            if (notMoving == true && isGrounded == true && justJumped == false && isRolling == false && !isWhipping && !isHealing)
                 IdleAnimation();
-            else if (notMoving == false && isGrounded == true && justJumped == false && isRolling == false && !isWhipping)
+            else if (notMoving == false && isGrounded == true && justJumped == false && isRolling == false && !isWhipping && !isHealing)
                 RunAnimation();
         }
     
@@ -470,7 +472,7 @@ public class Movement : MonoBehaviour
 
     public void IdleAnimation()
     {
-        if(!facingFront)
+        if(!facingFront && !isHealing)
         {
             anim.Play("MilesIdle"); 
         }
@@ -605,7 +607,18 @@ public class Movement : MonoBehaviour
             StartCoroutine(MilesHeroLandingDelay()); 
         } 
     }
+    public void MilesDrinkHealth()
+    {
+            isHealing = true;
+            anim.Play("MilesDrinkHealth");
+            StartCoroutine(HealthDelay());
+    }
 
+    IEnumerator HealthDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        isHealing = false;
+    }
     IEnumerator MilesHeroLandingDelay()
     {
         yield return new WaitForSeconds(0.5f);

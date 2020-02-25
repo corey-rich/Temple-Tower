@@ -9,6 +9,7 @@ public class coinSpawner : MonoBehaviour
     public int coinType;
     private int coinCount = 0;
     public int maxCoins = 5;
+    public int spawnForce = 250;
 
     private PotteryController PotteryController;
 
@@ -25,7 +26,7 @@ public class coinSpawner : MonoBehaviour
         {
             PotteryController.isCollided = false;            
             Rigidbody clone = Instantiate(coin[coinType], spawnPoint.transform.position, spawnPoint.transform.rotation);
-            clone.AddRelativeForce(Vector3.left * 250);
+            clone.AddRelativeForce(Vector3.left * spawnForce);
             PotteryController.isCollided = false;
             coinCount++;
         }

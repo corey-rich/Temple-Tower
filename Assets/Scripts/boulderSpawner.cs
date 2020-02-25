@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class boulderSpawner : MonoBehaviour
 {
+    public float timeDelay = 8f;
     public GameObject cameraShake;
     public GameObject boulderPrefab;
     public ParticleSystem rockslide;
@@ -75,7 +76,7 @@ public class boulderSpawner : MonoBehaviour
         rockslide.Play();
         yield return new WaitForSeconds(1.5f);
         Instantiate (boulderPrefab, targetPos.position, this.transform.rotation);
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(timeDelay);
         playedOnce = false;
         if (alwaysOn)
         {

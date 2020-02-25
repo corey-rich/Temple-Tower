@@ -22,6 +22,7 @@ TagManager:
   - Stairs
   - Treasure
   - end
+  - Health
   layers:
   - Default
   - TransparentFX
