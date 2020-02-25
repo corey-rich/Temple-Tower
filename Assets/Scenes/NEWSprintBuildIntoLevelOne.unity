@@ -53587,6 +53587,71 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: vcam
+      value: 
+      objectReference: {fileID: 770348511}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 6785743340178844362}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 4448722513536794717}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 3649637254525781217}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 1513683602}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: Minimap
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: Rockslide
+      value: 
+      objectReference: {fileID: 978946102}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: leftPoint
+      value: 
+      objectReference: {fileID: 1556616524}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: rightPoint
+      value: 
+      objectReference: {fileID: 1934874886}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 665063893}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: directionalArrows
+      value: 
+      objectReference: {fileID: 1825991651}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: temp
+      value: 
+      objectReference: {fileID: 1975844262}
+    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
+        type: 3}
+      propertyPath: arrowScript
+      value: 
+      objectReference: {fileID: 1825991654}
     - target: {fileID: 4901839011947377979, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53662,71 +53727,6 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: 0.8305824
       objectReference: {fileID: 0}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: vcam
-      value: 
-      objectReference: {fileID: 770348511}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 6785743340178844362}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: Movement
-      value: 
-      objectReference: {fileID: 4448722513536794717}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: movementScript
-      value: 
-      objectReference: {fileID: 3649637254525781217}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: level
-      value: 
-      objectReference: {fileID: 1513683602}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: Minimap
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: Rockslide
-      value: 
-      objectReference: {fileID: 978946102}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: leftPoint
-      value: 
-      objectReference: {fileID: 1556616524}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: rightPoint
-      value: 
-      objectReference: {fileID: 1934874886}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 665063893}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: directionalArrows
-      value: 
-      objectReference: {fileID: 1825991651}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: temp
-      value: 
-      objectReference: {fileID: 1975844262}
-    - target: {fileID: 8509852716811208153, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
-        type: 3}
-      propertyPath: arrowScript
-      value: 
-      objectReference: {fileID: 1825991654}
     - target: {fileID: 37184561769150831, guid: 45be6ae05f341ad4eb1d799b64d70dbd,
         type: 3}
       propertyPath: m_Height
