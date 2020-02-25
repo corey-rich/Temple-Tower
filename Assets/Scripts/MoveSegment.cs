@@ -5,9 +5,9 @@ using Cinemachine;
 
 public class MoveSegment : MonoBehaviour
 {
-    public GameObject temp;
+
     private int moveNumber = 3;
-    private Animator anim;
+    public Animator anim;
     private GameObject levelManager;
     private segmentManagerLevelOne scriptManager;
     public GameObject mechanism;
@@ -17,12 +17,15 @@ public class MoveSegment : MonoBehaviour
     public Movement movementScript;
     public GameObject level;
     public GameObject directionalArrows;
+    public GameObject waterfallAssets;
 
     public ParticleSystem Rockslide;
     public directionalArrows arrowScript;
 
     public float originalPosition;
     public float zoomInLength;
+    public float zoomOutLength;
+    public float zoomOutPosition;
     public float zoomInSpeed;
     public bool isLocked = false;
     public float zoomInPosition;
@@ -47,6 +50,7 @@ public class MoveSegment : MonoBehaviour
         scriptManager = levelManager.GetComponent<segmentManagerLevelOne>();
         originalPosition = vcam.m_Lens.FieldOfView;
         zoomInPosition = originalPosition + zoomInLength;
+        zoomOutPosition = originalPosition + zoomOutLength;
         DistanceCalculator();
         target.transform.position = new Vector3 (level.transform.position.x + distance, level.transform.position.y, level.transform.position.z);
     }
@@ -108,7 +112,15 @@ public class MoveSegment : MonoBehaviour
             vcam.m_Lens.FieldOfView -= (zoomInSpeed * Time.deltaTime);
         directionalArrows.SetActive(false);
     }
-
+    public void ZoomOut()
+    {
+        if (vcam.m_Lens.FieldOfView <= zoomOutPosition)
+            vcam.m_Lens.FieldOfView -= (-zoomInSpeed * Time.deltaTime);        
+    }
+    public void ZoomIn()
+    {  
+            StartCoroutine(ZoomOutRepeater());
+    }
     private void DistanceCalculator()
     {
         if (Mathf.Abs(leftPoint.position.x) > Mathf.Abs(rightPoint.position.x))
@@ -155,15 +167,6 @@ public class MoveSegment : MonoBehaviour
             moveNumber++;
         }
         Rockslide.Play();
-            if (playedOnce == false)
-            {
-                temp.SetActive(false);
-                playedOnce = true;
-            }       
-            else if (playedOnce == true)
-            {
-                temp.SetActive(true);
-            } 
         if (moveNumber > 4)
         {
             moveNumber = 0;
@@ -175,22 +178,38 @@ public class MoveSegment : MonoBehaviour
         switch (moveNumber)
             {
             case 4:
-                
+                waterfallAssets.SetActive(false);           
                 break;
             case 3:
-                scriptManager.disableGears();                
+                scriptManager.disableGears();
+                waterfallAssets.SetActive(true);                
                 break;
             case 2:
                 scriptManager.enableGears();
+                waterfallAssets.SetActive(false);
                 //turn off waterfall stream
                 break;
             case 1:
                 scriptManager.disableGears();
+                waterfallAssets.SetActive(false);
                 break;
             default:
                 
                 break;
             }
+    }
+    IEnumerator ZoomOutRepeater()
+    {
+        if (vcam.m_Lens.FieldOfView > originalPosition)
+        {
+            vcam.m_Lens.FieldOfView -= (zoomInSpeed * Time.deltaTime);
+        }
+        if (vcam.m_Lens.FieldOfView <= originalPosition)
+        {
+            yield break;
+        } 
+        yield return new WaitForSeconds(0.01f);
+        StartCoroutine(ZoomOutRepeater());
     }
 
 }
